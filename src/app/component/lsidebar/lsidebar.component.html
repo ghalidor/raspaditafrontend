@@ -1,0 +1,90 @@
+<div class="sidebar">
+    <!-- Logo sidebar -->
+    <a href="#" class="logo">
+        <img src="https://maxartkiller.com/website/AdminuxPRO/HTML/assets/img/logoicon.svg" alt="" class="logo-icon">
+        <div class="logo-text">
+            <h5 class="fs22 mb-0">Raspadita <sup class="badge badge-danger">v2</sup></h5>
+            <p class="text-uppercase fs11">Dashboard</p>
+        </div>
+    </a>
+    <h6 class="subtitle fs11">Principal</h6>
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/asignarHorario']" href="javascript:void(0)"><i class="material-icons icon">filter_none</i><span>Asignacion de Horarios</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/cierre']" href="javascript:void(0)"><i class="material-icons icon">style</i><span>Cierre de Registro</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/envio']" href="javascript:void(0)"><i class="material-icons icon">web</i><span>Envio de Datos Ofiplan</span></a>
+        </li>
+    </ul>
+    <h6 class="subtitle fs11">Reportes</h6>
+    <ul class="nav flex-column">
+        <li class="nav-item ngbDropdown dropdown">
+            <a class="nav-link dropdown-toggle" href="javascript:void(0)"><i class="material-icons icon">dashboard</i><span>Reportes</span> <i class="material-icons arrow">expand_more</i></a>
+            <div class="nav flex-column">
+                <div class="nav-item"><a class="nav-link" [routerLink]="['/reporteasistencia']" href="javascript:void(0)"><span>Asistencia</span></a></div>
+                <div class="nav-item"><a class="nav-link" [routerLink]="['/horasExtra']" href="javascript:void(0)"><span>A. Horas Extra</span></a></div>
+                <div class="nav-item"><a class="nav-link" [routerLink]="['/reportemarcaciones']" href="javascript:void(0)"><span>Marcaciones</span></a></div>
+                
+                <div class="nav-item"><a class="nav-link" [routerLink]="['/reporteenvio']" href="javascript:void(0)"><span>Envios</span></a></div>
+                <div class="nav-item"><a class="nav-link" [routerLink]="['/reporteenvioTotales']" href="javascript:void(0)"><span>Envios Totales</span></a></div>
+                <div class="nav-item"><a class="nav-link" [routerLink]="['/sedesRemoto']" href="javascript:void(0)"><span>Sedes Remoto</span></a></div>
+                <div class="nav-item"><a class="nav-link" [routerLink]="['/marcacionesRemoto']" href="javascript:void(0)"><span>Marcaciones Remoto</span></a></div>
+            </div>
+        </li>
+    </ul>
+    <h6 class="subtitle fs11">Mantenimientos</h6>
+
+    <ul class="nav flex-column">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="javascript:void(0)"><i class="material-icons icon">games</i><span>Mantenimientos</span> <i class="material-icons arrow">expand_more</i></a>
+            <div class="nav flex-column">
+                <div class="nav-item"><a class="nav-link" [routerLink]="['/empresa']" href="javascript:void(0)"><span>Empresas</span></a></div>
+                <div class="nav-item"><a class="nav-link" [routerLink]="['/sala']" href="javascript:void(0)"><span>Sede</span></a></div>
+                <div class="nav-item"><a class="nav-link" [routerLink]="['/usuario']" href="javascript:void(0)"><span>Usuarios</span></a></div>
+                <div class="nav-item"><a class="nav-link" [routerLink]="['/empleado']" href="javascript:void(0)"><span>Empleados</span></a></div>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"><span>Configuracion</span> <i class="material-icons arrow">expand_more</i></a>
+                    <div class="nav flex-column">
+                        <div class="nav-item"><a class="nav-link" [routerLink]="['/configurar']" href="javascript:void(0)"><span>Marcacion</span></a></div>
+                        <div class="nav-item"><a class="nav-link" [routerLink]="['/feriado']" href="javascript:void(0)"><span>Feriados</span></a></div>
+                        <!-- <div class="nav-item"><a class="nav-link" href="javascript:void(0)"><span>Tipo de Horas</span></a></div>
+                        <div class="nav-item"><a class="nav-link" href="javascript:void(0)"><span>Tipo de Datos  enviar</span></a></div> -->
+                        <!-- <div class="nav-item"><a class="nav-link" [routerLink]="['/situacionConcepto']" href="javascript:void(0)"><span>Situaciones y Conceptos</span></a></div> -->
+                        <div class="nav-item"><a class="nav-link" [routerLink]="['/tipoturno']" href="javascript:void(0)"><span>Tipo de Turnos</span></a></div>
+                        <div class="nav-item"><a class="nav-link" [routerLink]="['/turno']" href="javascript:void(0)"><span>Turnos</span></a></div>
+                        <div class="nav-item"><a class="nav-link" [routerLink]="['/situacion']" href="javascript:void(0)"><span>Situaciones</span></a></div>
+                        <div class="nav-item"><a class="nav-link" [routerLink]="['/concepto']" href="javascript:void(0)"><span>Concepto</span></a></div>
+                        <div class="nav-item"><a class="nav-link" [routerLink]="['/horasNocturnas']" href="javascript:void(0)"><span>Horas Nocturnas</span></a></div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <h6 class="subtitle fs11">Seguridad</h6>
+
+    <ul class="nav flex-column">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="javascript:void(0)"><i class="material-icons icon">games</i><span>Seguridad</span> <i class="material-icons arrow">expand_more</i></a>
+            <div class="nav flex-column">
+                <div class="nav-item"><a class="nav-link" [routerLink]="['/permiso']" href="javascript:void(0)"><span>Permisos</span></a></div>
+                <div class="nav-item"><a class="nav-link" [routerLink]="['/rol']" href="javascript:void(0)"><span>Roles</span></a></div>
+                <div class="nav-item"><a class="nav-link" [routerLink]="['/usuarioSala']" href="javascript:void(0)"><span>Usuario a Sede</span></a></div>
+                <div class="nav-item"><a class="nav-link" [routerLink]="['/auditoria']" href="javascript:void(0)"><span>Auditoria</span></a></div>
+            </div>
+        </li>
+    </ul>
+    <hr>
+    <ul class="nav flex-column">
+        <li class="nav-item active">
+            <a class="nav-link" (click)="recargar()" href="javascript:void(0)" title="Recargar Página"><i class="material-icons icon" >cached</i><span>Recargar</span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" style="background: linear-gradient(90deg, rgb(125 41 41 / 95%) 0, rgba(0, 0, 0, 0) 100%);" (click)="cerrarSesion()" href="javascript:void(0)" title="Cerrar Sesión"><i class="material-icons icon" style="background-color: red;">input</i><span>Cerrar Sesión</span></a>
+        </li>
+    </ul>
+    <!-- Setting link -->
+</div>
