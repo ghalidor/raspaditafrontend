@@ -1547,7 +1547,7 @@ pre code {
 .table-hover tbody tr:hover {
     color: rgba(33, 37, 41, 1);
     /* background-color: rgba(0, 0, 0, 0.07); */
-    background-color: rgb(10 37 133);
+    background-color:rgb(64 20 139);
     cursor: pointer;
 }
 
@@ -2376,13 +2376,13 @@ fieldset:disabled a.btn {
 .btn-primary {
     color: rgba(255, 255, 255, 1);
     background-color: rgba(91, 146, 255, 1);
-    border-color: rgba(91, 146, 255, 1);
+    border-color:rgb(157 91 255);
 }
 
 .btn-primary:hover {
     color: rgba(255, 255, 255, 1);
-    background-color: rgba(53, 121, 255, 1);
-    border-color: rgb(152 186 255);
+    background-color: rgb(75 25 115);
+    border-color: rgb(193 152 255);
 }
 
 .btn-primary:focus,
@@ -5514,7 +5514,7 @@ a.close.disabled {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1050;
+    /* z-index: 1050; */
     display: none;
     width: 100%;
     height: 100%;
@@ -5593,10 +5593,10 @@ a.close.disabled {
     flex-direction: column;
     width: 100%;
     pointer-events: auto;
-    background-color: rgb(31 45 110);
+    background-color: rgb(171 0 0);
     background-clip: padding-box;
     /* border: 1px solid rgba(0, 0, 0, 0.2); */
-    border: 1px solid #2a5482;
+    border: 1px solid rgba(255, 188, 71, 1);
     border-radius: 0.3rem;
     outline: 0;
 }
@@ -5624,7 +5624,7 @@ a.close.disabled {
     align-items: flex-start;
     justify-content: space-between;
     padding: 1rem;
-    border-bottom: 1px solid rgb(51 89 126);
+    border-bottom: 1px solid rgba(255, 188, 71, 1);
     border-top-left-radius: 0.3rem;
     border-top-right-radius: 0.3rem;
     color: #fff;
@@ -5652,7 +5652,7 @@ a.close.disabled {
     align-items: center;
     justify-content: flex-end;
     padding: 1rem;
-    border-top: 1px solid rgb(51 89 126);
+    border-top: 1px solid rgba(255, 188, 71, 1);
     border-bottom-right-radius: 0.3rem;
     border-bottom-left-radius: 0.3rem;
 }
@@ -9853,7 +9853,7 @@ html {
 body {
     font-family: "Roboto", sans-serif;
     background-color: rgba(22, 30, 67, 1);
-    color: rgba(255, 255, 255, 1);
+    color: rgba(255, 188, 71, 1);
     height: auto;
     min-height: 100%;
     width: 100%;
@@ -10219,7 +10219,7 @@ hr,
 .fc-unthemed td,
 .fc-unthemed th,
 .fc-unthemed thead {
-    border-color: rgba(91, 146, 255, 0.15) !important;
+    border-color: rgba(255, 188, 71, 1) !important;
 }
 
 .border-right {
@@ -10328,7 +10328,7 @@ hr,
 }
 
 .wrapper>.content {
-    background: radial-gradient(rgb(45 0 75) 0, rgb(73 7 131) 100%) top / 100% fixed;
+    background: radial-gradient(rgb(26 2 43) 0, rgb(45 1 83) 100%) top / 100% fixed;
     /* border-radius: 5px; */
     padding: 0;
     height: auto;
@@ -10953,7 +10953,7 @@ body.sidebar-fill .sidebar .nav .nav-item.dropdown.show>.dropdown-toggle .icon {
 }
 
 .header {
-    color: rgba(255, 255, 255, 1);
+    color: rgba(255, 188, 71, 1);
     position: relative;
     z-index: 9;
 }
@@ -11520,7 +11520,7 @@ body.sidebar-fill .sidebar .nav .nav-item.dropdown.show>.dropdown-toggle .icon {
 }
 
 .card {
-    background-color: rgb(181 20 20);
+    background-color: transparent !important;
 }
 
 .card.blur {
@@ -12689,9 +12689,10 @@ body.sidebar-fill .sidebar .nav .nav-item.dropdown.show>.dropdown-toggle .icon {
 }
 
 .table tbody tr td {
-    color: rgba(168, 197, 255, 1);
+    color: rgb(237 237 237);
     vertical-align: middle;
     padding: 0.25rem 0.5rem;
+    background: #b10909;
 }
 
 .table tbody tr td h1,
@@ -13713,8 +13714,8 @@ a.ck.ck-button.ck-on,
 
 .table thead tr th {
     border: 1px solid #fff;
-    background-color: #1d285a;
-    border-color: rgba(90, 146, 255, 0.15) !important;
+    background-color: #4f0606;
+    border-color: rgba(255, 188, 71, 1) !important;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
@@ -14264,7 +14265,7 @@ div.dataTables_wrapper div.dataTables_filter input {
 }
 
 .btn-primary {
-    background-color: rgb(36 93 205);
+    background-color: rgb(124 26 201);
 }
 
 .wrapper_ {
@@ -14339,4 +14340,14 @@ table.dataTable thead>tr>td.sorting_desc:after {
 .nav-link:hover,
 .nav-link:focus {
     color: rgb(199 168 4);
+}
+
+.dataTables_filter label i{
+    position:absolute;
+    top: 7px;
+    margin-left: 5px;
+}
+
+.dataTables_filter label input{
+    padding-left: 20px !important;
 }
