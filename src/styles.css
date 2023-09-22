@@ -10328,7 +10328,7 @@ hr,
 }
 
 .wrapper>.content {
-    background: radial-gradient(rgb(102 40 143) 0, rgb(95 8 171) 100%) top / 100% fixed;
+    background: radial-gradient(rgb(45 0 75) 0, rgb(73 7 131) 100%) top / 100% fixed;
     /* border-radius: 5px; */
     padding: 0;
     height: auto;
@@ -10616,13 +10616,14 @@ body.modern-touch .sidebar .nav .nav-item .nav-link {
 }
 
 .sidebar .nav .nav-item.active .nav-link {
-    background: linear-gradient(90deg, rgba(41, 56, 125, 0.95) 0, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(90deg, rgb(255 214 0) 0, rgba(0, 0, 0, 0) 100%);
     color: rgba(255, 255, 255, 1);
+    text-shadow: black 1px 1px 1px;
 }
 
 .sidebar .nav .nav-item.active .nav-link .icon {
     color: rgba(255, 255, 255, 1);
-    background-color: rgba(91, 146, 255, 1);
+    background-color: rgb(116 44 125);
 }
 
 .sidebar .nav .nav-item.dropdown.show>.dropdown-toggle {
