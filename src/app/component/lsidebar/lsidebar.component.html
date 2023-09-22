@@ -1,22 +1,22 @@
 <div class="sidebar">
     <!-- Logo sidebar -->
     <a href="#" class="logo">
-        <img src="https://maxartkiller.com/website/AdminuxPRO/HTML/assets/img/logoicon.svg" alt="" class="logo-icon">
+        <!-- <img src="https://maxartkiller.com/website/AdminuxPRO/HTML/assets/img/logoicon.svg" alt="" class="logo-icon"> -->
         <div class="logo-text">
-            <h5 class="fs22 mb-0">Raspadita <sup class="badge badge-danger">v2</sup></h5>
+            <h5 class="fs22 mb-0"><i class="fa fa-edit"></i> Raspadita <sup class="badge badge-danger">v1</sup></h5>
             <p class="text-uppercase fs11">Dashboard</p>
         </div>
     </a>
     <h6 class="subtitle fs11">Principal</h6>
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/asignarHorario']" href="javascript:void(0)"><i class="material-icons icon">filter_none</i><span>Asignacion de Horarios</span></a>
+            <a class="nav-link" [routerLink]="['/asignarHorario']" href="javascript:void(0)"><i class="material-icons icon">filter_none</i><span>Caja</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/cierre']" href="javascript:void(0)"><i class="material-icons icon">style</i><span>Cierre de Registro</span></a>
+            <a class="nav-link" [routerLink]="['/cierre']" href="javascript:void(0)"><i class="material-icons icon">style</i><span>Local</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/envio']" href="javascript:void(0)"><i class="material-icons icon">web</i><span>Envio de Datos Ofiplan</span></a>
+            <a class="nav-link" [routerLink]="['/envio']" href="javascript:void(0)"><i class="material-icons icon">web</i><span>Dispositivos</span></a>
         </li>
     </ul>
     <h6 class="subtitle fs11">Reportes</h6>
@@ -24,14 +24,8 @@
         <li class="nav-item ngbDropdown dropdown">
             <a class="nav-link dropdown-toggle" href="javascript:void(0)"><i class="material-icons icon">dashboard</i><span>Reportes</span> <i class="material-icons arrow">expand_more</i></a>
             <div class="nav flex-column">
-                <div class="nav-item"><a class="nav-link" [routerLink]="['/reporteasistencia']" href="javascript:void(0)"><span>Asistencia</span></a></div>
-                <div class="nav-item"><a class="nav-link" [routerLink]="['/horasExtra']" href="javascript:void(0)"><span>A. Horas Extra</span></a></div>
-                <div class="nav-item"><a class="nav-link" [routerLink]="['/reportemarcaciones']" href="javascript:void(0)"><span>Marcaciones</span></a></div>
-                
-                <div class="nav-item"><a class="nav-link" [routerLink]="['/reporteenvio']" href="javascript:void(0)"><span>Envios</span></a></div>
-                <div class="nav-item"><a class="nav-link" [routerLink]="['/reporteenvioTotales']" href="javascript:void(0)"><span>Envios Totales</span></a></div>
-                <div class="nav-item"><a class="nav-link" [routerLink]="['/sedesRemoto']" href="javascript:void(0)"><span>Sedes Remoto</span></a></div>
-                <div class="nav-item"><a class="nav-link" [routerLink]="['/marcacionesRemoto']" href="javascript:void(0)"><span>Marcaciones Remoto</span></a></div>
+                <div class="nav-item"><a class="nav-link" [routerLink]="['/reporteasistencia']" href="javascript:void(0)"><span>Movimiento</span></a></div>
+
             </div>
         </li>
     </ul>
@@ -39,7 +33,7 @@
 
     <ul class="nav flex-column">
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="javascript:void(0)"><i class="material-icons icon">games</i><span>Mantenimientos</span> <i class="material-icons arrow">expand_more</i></a>
+            <a class="nav-link dropdown-toggle" href="javascript:void(0)"><i class="material-icons icon">games</i><span>Caja</span> <i class="material-icons arrow">expand_more</i></a>
             <div class="nav flex-column">
                 <div class="nav-item"><a class="nav-link" [routerLink]="['/empresa']" href="javascript:void(0)"><span>Empresas</span></a></div>
                 <div class="nav-item"><a class="nav-link" [routerLink]="['/sala']" href="javascript:void(0)"><span>Sede</span></a></div>
