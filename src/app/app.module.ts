@@ -19,24 +19,49 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
 import { PlantillaComponent } from './component/plantilla/plantilla.component';
-import { CajaComponent } from './component/caja/caja.component';
-import { PuntoJuegoComponent } from './component/punto-juego/punto-juego.component';
-import { LocalComponent } from './component/local/local.component';
 import { LfooterComponent } from './component/lfooter/lfooter.component';
 import { LheaderComponent } from './component/lheader/lheader.component';
 import { LsidebarComponent } from './component/lsidebar/lsidebar.component';
-
+import { AperturalistaComponent } from './component/apertura/aperturalista/aperturalista.component';
+import { AperturanuevoComponent } from './component/apertura/aperturanuevo/aperturanuevo.component';
+import { PuentojuegonuevoComponent } from './component/puntojuego/puentojuegonuevo/puentojuegonuevo.component';
+import { PuentojuegolistaComponent } from './component/puntojuego/puentojuegolista/puentojuegolista.component';
+import { CajalistaComponent } from './component/caja/cajalista/cajalista.component';
+import { CajanuevoComponent } from './component/caja/cajanuevo/cajanuevo.component';
+import { LocallistaComponent } from './component/local/locallista/locallista.component';
+import { LocalnuevoComponent } from './component/local/localnuevo/localnuevo.component';
+import { LocaleditarComponent } from './component/local/localeditar/localeditar.component';
+import { CajaeditarComponent } from './component/caja/cajaeditar/cajaeditar.component';
+import { PuentojuegoeditarComponent } from './component/puntojuego/puentojuegoeditar/puentojuegoeditar.component';
+import { PuentojuegolocalComponent } from './component/puntojuego/puentojuegolocal/puentojuegolocal.component';
+import { CajalocalComponent } from './component/caja/cajalocal/cajalocal.component';
+import { TicketComponent } from './component/apertura/ticket/ticket.component';
+import { GenerarticketComponent } from './component/apertura/generarticket/generarticket.component';
+import { PagarticketsaldoComponent } from './component/apertura/pagarticketsaldo/pagarticketsaldo.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     PlantillaComponent,
-    CajaComponent,
-    PuntoJuegoComponent,
-    LocalComponent,
     LfooterComponent,
     LheaderComponent,
-    LsidebarComponent
+    LsidebarComponent,
+    AperturalistaComponent,
+    AperturanuevoComponent,
+    PuentojuegonuevoComponent,
+    PuentojuegolistaComponent,
+    CajalistaComponent,
+    CajanuevoComponent,
+    LocallistaComponent,
+    LocalnuevoComponent,
+    LocaleditarComponent,
+    CajaeditarComponent,
+    PuentojuegoeditarComponent,
+    PuentojuegolocalComponent,
+    CajalocalComponent,
+    TicketComponent,
+    GenerarticketComponent,
+    PagarticketsaldoComponent
   ],
   imports: [
     BrowserModule,

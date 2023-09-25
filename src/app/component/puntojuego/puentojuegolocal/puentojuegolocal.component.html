@@ -1,0 +1,68 @@
+<!-- Sidebar starts -->
+<app-lsidebar></app-lsidebar>
+<!-- Sidebar ends -->
+
+<!-- wrapper starts -->
+<div class="wrapper">
+    <div class="content shadow-sm" style="padding-bottom: 58px;">
+        <app-lheader></app-lheader>
+        <div class="container-fluid header-container">
+            <div class="row submenu">
+                <div class="container-fluid" id="submenu-container">
+                    <div class="row py-2">
+                        <div class="col">
+                            <h6 class="font-weight-light mt-1">Lista de Dispositivos Local<br><small class="text-mute">Registros de
+                  Dispositivos Local</small></h6>
+                        </div>
+                        <!-- <div class="col-auto align-self-center">
+                            <button class="btn btn-primary btn-sm" (click)="modalNuevo()"><i class="material-icons icon md-18"
+                  style="margin-top: -4px;" >add</i> Nuevo Dispositivo</button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main container starts -->
+        <div class="main-container container-fluid" id="main-container">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body ">
+                    <div class="view">
+                        <div class="wrapper_">
+                            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-sm table-bordered table-striped table-hover display " width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th class="bg-warning">LOCAL</th>
+                                        <th>NRO</th>
+                                        <th>IP</th>
+                                        <th>F. REGISTRO</th>
+                                        <th>ESTADO</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let dispositivo of listadispositivo">
+                                        <td>{{ dispositivo.id }}</td>
+                                        <td class="text-nowrap text-left">{{ dispositivo.local_nombre }}</td>
+                                        <td class="text-nowrap text-left">{{ dispositivo.nro_punto }}</td>
+                                        <td class="text-nowrap text-left">{{ dispositivo.ip }}</td>
+                                        <td class="text-nowrap text-left">{{ dispositivo.fecharegistro_string }}</td>
+                                        <td class="text-nowrap text-left"><span class="badge badge-{{dispositivo.clase}}">{{ dispositivo.estado_string }}</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+
+    <app-lfooter class=""></app-lfooter>
+</div>

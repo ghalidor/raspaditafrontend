@@ -1547,7 +1547,7 @@ pre code {
 .table-hover tbody tr:hover {
     color: rgba(33, 37, 41, 1);
     /* background-color: rgba(0, 0, 0, 0.07); */
-    background-color:rgb(64 20 139);
+    background-color: rgb(64 20 139);
     cursor: pointer;
 }
 
@@ -2376,7 +2376,7 @@ fieldset:disabled a.btn {
 .btn-primary {
     color: rgba(255, 255, 255, 1);
     background-color: rgba(91, 146, 255, 1);
-    border-color:rgb(157 91 255);
+    border-color: rgb(157 91 255);
 }
 
 .btn-primary:hover {
@@ -6262,7 +6262,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-    background-color: rgba(91, 146, 255, 1) !important;
+    background-color: rgb(76 18 121) !important;
 }
 
 a.bg-primary:hover,
@@ -12685,7 +12685,8 @@ body.sidebar-fill .sidebar .nav .nav-item.dropdown.show>.dropdown-toggle .icon {
     color: rgba(255, 255, 255, 1);
     border: 0 none;
     font-weight: 400;
-    padding: 0.45rem 0.5rem;
+    padding-top: 0.35rem !important;
+    padding-bottom: 0.35rem !important;
 }
 
 .table tbody tr td {
@@ -14342,12 +14343,12 @@ table.dataTable thead>tr>td.sorting_desc:after {
     color: rgb(199 168 4);
 }
 
-.dataTables_filter label i{
-    position:absolute;
+.dataTables_filter label i {
+    position: absolute;
     top: 7px;
     margin-left: 5px;
 }
 
-.dataTables_filter label input{
+.dataTables_filter label input {
     padding-left: 20px !important;
 }

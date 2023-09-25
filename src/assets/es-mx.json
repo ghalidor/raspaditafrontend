@@ -193,7 +193,7 @@
         }
     },
     "decimal": ".",
-    "emptyTable": "<label class='badge bg-danger'>No hay datos disponibles</label>",
+    "emptyTable": "<label class='badge bg-primary'>No hay datos disponibles</label>",
     "info": "Mostrando _START_ al _END_ de  _TOTAL_ ",
     "zeroRecords": "<label class='badge bg-danger'>No se encontraron coincidencias</label>"
 }

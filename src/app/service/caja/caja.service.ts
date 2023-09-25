@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { cajaNuevo } from 'src/app/module/caja';
+import { cajaEditar, cajaNuevo } from 'src/app/module/caja';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,11 @@ export class CajaService {
 
   GetCajas(): Observable<any> {
     const url = `${this.apiUrl}Caja/GetCajas`;
+    return this.httpclient.get(url);
+  }
+
+  GetDetalleCaja(id: number): Observable<any> {
+    const url = `${this.apiUrl}Caja/GetDetalleCaja/${id}`;
     return this.httpclient.get(url);
   }
 
@@ -27,16 +32,9 @@ export class CajaService {
     return this.httpclient.post<cajaNuevo>(url, caja, { headers });
   }
 
-  CerrarCaja(id: number): Observable<any> {
-    const url = `${this.apiUrl}Caja/CerrarCaja`;
+  UpdateCaja(caja: cajaEditar): Observable<any> {
+    const url = `${this.apiUrl}Caja/UpdateCaja`;
     const headers = new HttpHeaders().set('content-type', 'application/json');
-    return this.httpclient.post<cajaNuevo>(url, id, { headers });
+    return this.httpclient.post<cajaEditar>(url, caja, { headers });
   }
-
-  AperturarCaja(): Observable<any> {
-    const url = `${this.apiUrl}Caja/AperturarCaja`;
-    const headers = new HttpHeaders().set('content-type', 'application/json');
-    return this.httpclient.post<cajaNuevo>(url, { headers });
-  }
-
 }

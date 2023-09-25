@@ -10,13 +10,16 @@
     <h6 class="subtitle fs11">Principal</h6>
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/caja']" href="javascript:void(0)"><i class="material-icons icon">filter_none</i><span>Caja</span></a>
+            <a class="nav-link" [routerLink]="['/ticket']" href="javascript:void(0)"><i class="material-icons icon">web</i><span>Cobro/Pago</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/local']" href="javascript:void(0)"><i class="material-icons icon">style</i><span>Local</span></a>
+            <a class="nav-link" [routerLink]="['/apertura']" href="javascript:void(0)"><i class="material-icons icon">filter_none</i><span>Apertura</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/dispositivo']" href="javascript:void(0)"><i class="material-icons icon">web</i><span>Dispositivos</span></a>
+            <a class="nav-link" [routerLink]="['/cajalocal']" href="javascript:void(0)"><i class="material-icons icon">filter_none</i><span>Cajas</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/dispositivolocal']" href="javascript:void(0)"><i class="material-icons icon">filter_none</i><span>Dispositivos</span></a>
         </li>
     </ul>
     <h6 class="subtitle fs11">Reportes</h6>
@@ -33,27 +36,12 @@
 
     <ul class="nav flex-column">
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="javascript:void(0)"><i class="material-icons icon">games</i><span>Caja</span> <i class="material-icons arrow">expand_more</i></a>
+            <a class="nav-link dropdown-toggle" href="javascript:void(0)"><i class="material-icons icon">games</i><span>Mantenimientos</span> <i class="material-icons arrow">expand_more</i></a>
             <div class="nav flex-column">
-                <div class="nav-item"><a class="nav-link" [routerLink]="['/empresa']" href="javascript:void(0)"><span>Empresas</span></a></div>
-                <div class="nav-item"><a class="nav-link" [routerLink]="['/sala']" href="javascript:void(0)"><span>Sede</span></a></div>
-                <div class="nav-item"><a class="nav-link" [routerLink]="['/usuario']" href="javascript:void(0)"><span>Usuarios</span></a></div>
-                <div class="nav-item"><a class="nav-link" [routerLink]="['/empleado']" href="javascript:void(0)"><span>Empleados</span></a></div>
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"><span>Configuracion</span> <i class="material-icons arrow">expand_more</i></a>
-                    <div class="nav flex-column">
-                        <div class="nav-item"><a class="nav-link" [routerLink]="['/configurar']" href="javascript:void(0)"><span>Marcacion</span></a></div>
-                        <div class="nav-item"><a class="nav-link" [routerLink]="['/feriado']" href="javascript:void(0)"><span>Feriados</span></a></div>
-                        <!-- <div class="nav-item"><a class="nav-link" href="javascript:void(0)"><span>Tipo de Horas</span></a></div>
-                        <div class="nav-item"><a class="nav-link" href="javascript:void(0)"><span>Tipo de Datos  enviar</span></a></div> -->
-                        <!-- <div class="nav-item"><a class="nav-link" [routerLink]="['/situacionConcepto']" href="javascript:void(0)"><span>Situaciones y Conceptos</span></a></div> -->
-                        <div class="nav-item"><a class="nav-link" [routerLink]="['/tipoturno']" href="javascript:void(0)"><span>Tipo de Turnos</span></a></div>
-                        <div class="nav-item"><a class="nav-link" [routerLink]="['/turno']" href="javascript:void(0)"><span>Turnos</span></a></div>
-                        <div class="nav-item"><a class="nav-link" [routerLink]="['/situacion']" href="javascript:void(0)"><span>Situaciones</span></a></div>
-                        <div class="nav-item"><a class="nav-link" [routerLink]="['/concepto']" href="javascript:void(0)"><span>Concepto</span></a></div>
-                        <div class="nav-item"><a class="nav-link" [routerLink]="['/horasNocturnas']" href="javascript:void(0)"><span>Horas Nocturnas</span></a></div>
-                    </div>
-                </div>
+                <div class="nav-item"><a class="nav-link" [routerLink]="['/local']" href="javascript:void(0)"><span>Local</span></a></div>
+                <div class="nav-item"><a class="nav-link" [routerLink]="['/caja']" href="javascript:void(0)"><span>Cajas</span></a></div>
+                <div class="nav-item"><a class="nav-link" [routerLink]="['/dispositivo']" href="javascript:void(0)"><span>Dispositivos</span></a></div>
+
             </div>
         </li>
     </ul>
