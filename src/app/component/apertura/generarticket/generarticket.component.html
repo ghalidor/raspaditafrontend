@@ -9,7 +9,7 @@
             <div class="col-lg-12 col-md-12">
                 <div class="form-group ">
                     <label>Dispositivo</label>
-                    <ng-select class="" formControlName="puntojuego_id" placeholder="Seleccione" [(ngModel)]="ticket.puntojuego_id" [clearable]="true" [searchable]="true" [multiple]="false">
+                    <ng-select class="" formControlName="puntojuego_id" placeholder="Seleccione" [(ngModel)]="ticket.puntojuego_id" (change)="focucredito()" [clearable]="true" [searchable]="true" [multiple]="false">
                         <ng-option *ngFor="let e of listadispositivo" [value]="e.id">{{e.nro_punto}} - {{e.ip}}</ng-option>
                     </ng-select>
                 </div>
@@ -19,7 +19,7 @@
             <div class="col-lg-12 col-md-12">
                 <div class="form-group ">
                     <label>Crédito</label>
-                    <input type="text" [(ngModel)]="ticket.credito" formControlName="credito" (keyup)="valormonto($event)" class="form-control text-right tamanio" placeholder="">
+                    <input type="text" [(ngModel)]="ticket.credito" formControlName="credito" (keyup)="valormonto($event)" (keydown.enter)="presionar($event)" #credito class="form-control text-right tamanio" placeholder="">
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
             <div class="col-lg-12 col-md-12">
                 <div class="form-group ">
                     <label>Monto</label>
-                    <input type="text" [(ngModel)]="ticket.monto" formControlName="monto" (keyup)="valorcredito($event)" class="form-control text-right tamanio" placeholder="">
+                    <input type="text" [(ngModel)]="ticket.monto" formControlName="monto" (keyup)="valorcredito($event)" (keydown.enter)="presionar($event)" class="form-control text-right tamanio" placeholder="">
                 </div>
             </div>
         </div>
@@ -36,5 +36,5 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-primary" (click)="activeModal.dismiss()">Cerrar</button>
-    <button type="button" class="btn btn-danger" (click)="generar()">GENERAR</button>
+    <button type="button" class="btn btn-danger" #btngenerar (click)="generar()">GENERAR</button>
 </div>

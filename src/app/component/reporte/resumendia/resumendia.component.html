@@ -1,0 +1,84 @@
+<!-- Sidebar starts -->
+<app-lsidebar></app-lsidebar>
+<!-- Sidebar ends -->
+
+<!-- wrapper starts -->
+<div class="wrapper">
+    <div class="content shadow-sm" style="padding-bottom: 58px;">
+        <app-lheader></app-lheader>
+        <div class="container-fluid header-container">
+            <div class="row submenu">
+                <div class="container-fluid" id="submenu-container">
+                    <div class="row py-2">
+
+                        <div class="col">
+                            <h6 class="font-weight-light mt-1">Reporte Resumen del dia<br><small
+                                    class="text-mute">Resumen del dia</small></h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main container starts -->
+        <div class="main-container container-fluid" id="main-container">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-md-3 offset-md-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Fecha</span>
+                                    </div>
+                                    <input type="text" placeholder="DD-MM-YYYY" [(ngModel)]="fecha" class="form-control"
+                                        [bsConfig]="{dateInputFormat: 'DD-MM-YYYY',showWeekNumbers: false,useUtc: false }"
+                                        bsDatepicker>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i
+                                                class="material-icons icon">date_range</i></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        
+                        <div class="col-md-3">
+                            <div class="alert alert-success text-center">
+                                <h2 class="">Apertura 1</h2>
+                                <hr class="bg-green">
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td class="text-right" style="width: 50%;"><h4>Venta : </h4></td>
+                                        <td class="text-left" style="width: 50%;"><h4><b> 234</b></h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-right" style="width: 50%;"><h4>Compra : </h4></td>
+                                        <td class="text-left" style="width: 50%;"><h4><b> 234</b></h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-right" style="width: 50%;"><h4>Utilidad : </h4></td>
+                                        <td class="text-left" style="width: 50%;"><h4><b> 234</b></h4></td>
+                                    </tr>
+                                </table>
+                             
+                            </div>                          
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+    <app-lfooter class=""></app-lfooter>
+</div>

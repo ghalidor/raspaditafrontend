@@ -1854,8 +1854,8 @@ pre code {
 
 .form-control:focus {
     color: rgb(198 200 203);
-    background-color: rgb(34 47 104);
-    border-color: rgb(98 109 133);
+    background-color: rgb(141 7 7);
+    border-color: rgb(255, 255, 255);
     outline: 0;
     box-shadow: 0 0 0.2rem rgba(91, 146, 255, 0.25);
 }
@@ -3547,7 +3547,7 @@ input[type="button"].btn-block {
     color: rgb(255 255 255);
     text-align: center;
     white-space: nowrap;
-    background-color: rgb(34 46 103);
+    background-color: rgb(161 30 30);
     border: 1px solid rgba(206, 212, 218, 1);
     border-radius: 0.25rem;
 }
@@ -12919,8 +12919,8 @@ table.dataTable>tbody>tr.child ul.dtr-details {
 .form-control,
 .custom-select,
 .easy-autocomplete input {
-    background-color: rgba(22, 30, 67, 0.5);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: rgb(105 30 30);
+    border: 1px solid rgb(253 253 253);
     color: rgba(255, 255, 255, 1);
 }
 

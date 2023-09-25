@@ -8,6 +8,8 @@ import { PuentojuegolistaComponent } from './component/puntojuego/puentojuegolis
 import { PuentojuegolocalComponent } from './component/puntojuego/puentojuegolocal/puentojuegolocal.component';
 import { CajalocalComponent } from './component/caja/cajalocal/cajalocal.component';
 import { TicketComponent } from './component/apertura/ticket/ticket.component';
+import { ResumendiaComponent } from './component/reporte/resumendia/resumendia.component';
+import { RollistaComponent } from './component/rol/rollista/rollista.component';
 
 
 const routes: Routes = [ { path: '', redirectTo: '/plantilla', pathMatch: 'full' },
@@ -17,10 +19,13 @@ const routes: Routes = [ { path: '', redirectTo: '/plantilla', pathMatch: 'full'
 { path: 'cajalocal', component: CajalocalComponent},
 { path: 'dispositivolocal', component: PuentojuegolocalComponent},
 
+{ path: 'resumendia', component: ResumendiaComponent},
+
 { path: 'caja', component: CajalistaComponent},
 { path: 'local', component: LocallistaComponent},
 { path: 'dispositivo', component: PuentojuegolistaComponent},
 
+{ path: 'roles', component: RollistaComponent},
 
 //{ path: 'dispositivo', component: },
 ];

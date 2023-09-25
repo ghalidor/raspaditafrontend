@@ -38,6 +38,15 @@ import { CajalocalComponent } from './component/caja/cajalocal/cajalocal.compone
 import { TicketComponent } from './component/apertura/ticket/ticket.component';
 import { GenerarticketComponent } from './component/apertura/generarticket/generarticket.component';
 import { PagarticketsaldoComponent } from './component/apertura/pagarticketsaldo/pagarticketsaldo.component';
+import { ResumendiaComponent } from './component/reporte/resumendia/resumendia.component';
+import { RollistaComponent } from './component/rol/rollista/rollista.component';
+import { RolnuevoComponent } from './component/rol/rolnuevo/rolnuevo.component';
+import { RoleditarComponent } from './component/rol/roleditar/roleditar.component';
+import { UsuariolistaComponent } from './component/usuario/usuariolista/usuariolista.component';
+import { UsuarionuevoComponent } from './component/usuario/usuarionuevo/usuarionuevo.component';
+import { UsuarioeditarComponent } from './component/usuario/usuarioeditar/usuarioeditar.component';
+import { UsuariocajaComponent } from './component/usuario/usuariocaja/usuariocaja.component';
+import { UsuariolocalComponent } from './component/usuario/usuariolocal/usuariolocal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +70,16 @@ import { PagarticketsaldoComponent } from './component/apertura/pagarticketsaldo
     CajalocalComponent,
     TicketComponent,
     GenerarticketComponent,
-    PagarticketsaldoComponent
+    PagarticketsaldoComponent,
+    ResumendiaComponent,
+    RollistaComponent,
+    RolnuevoComponent,
+    RoleditarComponent,
+    UsuariolistaComponent,
+    UsuarionuevoComponent,
+    UsuarioeditarComponent,
+    UsuariocajaComponent,
+    UsuariolocalComponent
   ],
   imports: [
     BrowserModule,
