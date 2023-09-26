@@ -39,6 +39,7 @@ export class LocaleditarComponent implements OnInit {
   }
 
   detalle() {
+    this.spinnerService.show();
     this.localService.GetDetalleLocal(this.id).subscribe({
       next: response => {
         this.local = response.data;

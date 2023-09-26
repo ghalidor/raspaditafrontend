@@ -1,1 +1,75 @@
-<p>usuariolista works!</p>
+<!-- Sidebar starts -->
+<app-lsidebar></app-lsidebar>
+<!-- Sidebar ends -->
+
+<!-- wrapper starts -->
+<div class="wrapper">
+    <div class="content shadow-sm" style="padding-bottom: 58px;">
+        <app-lheader></app-lheader>
+        <div class="container-fluid header-container">
+            <div class="row submenu">
+                <div class="container-fluid" id="submenu-container">
+                    <div class="row py-2">
+                        <!-- Submenu section starts -->
+                        <div class="col">
+                            <h6 class="font-weight-light mt-1">Lista de Usuarios<br><small class="text-mute">Registros de
+                  Usuarios</small></h6>
+                        </div>
+                        <!-- Submenu section ends -->
+                        <div class="col-auto align-self-center">
+                            <button class="btn btn-primary btn-sm" (click)="modalNuevo()"><i class="material-icons icon md-18"
+                  style="margin-top: -4px;" >add</i> Nuevo Usuario</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main container starts -->
+        <div class="main-container container-fluid" id="main-container">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body ">
+                    <div class="view">
+                        <div class="wrapper_">
+                            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-sm table-bordered table-striped table-hover display " width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th class="bg-warning">LOCAL</th>
+                                        <th class="bg-warning">ROL</th>
+                                        <th class="bg-warning">NOMBRE</th>
+                                        <th>F. REGISTRO</th>
+                                        <th>ESTADO</th>
+                                        <th class="text-center">ACCION</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let usuario of listausuario">
+                                        <td>{{ usuario.id }}</td>
+                                        <td class="text-nowrap text-left">{{ usuario.local_nombre }}</td>
+                                        <td class="text-nowrap text-left">{{ usuario.rol_nombre }}</td>
+                                        <td class="text-nowrap text-left">{{ usuario.nombre }}</td>
+                                        <td class="text-nowrap text-left">{{ usuario.fecharegistro_string }}</td>
+                                        <td class="text-nowrap text-left"><span class="badge badge-{{usuario.clase}}">{{ usuario.estado_string }}</span></td>
+                                        <td class="text-center">
+                                            <button type="button" class="btn btn-outline-primary btn-sm" (click)="modalDetalle(usuario.id)"><i
+                                                    class="fa fa-edit"></i> EDITAR</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+
+    <app-lfooter class=""></app-lfooter>
+</div>

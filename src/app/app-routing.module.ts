@@ -10,6 +10,7 @@ import { CajalocalComponent } from './component/caja/cajalocal/cajalocal.compone
 import { TicketComponent } from './component/apertura/ticket/ticket.component';
 import { ResumendiaComponent } from './component/reporte/resumendia/resumendia.component';
 import { RollistaComponent } from './component/rol/rollista/rollista.component';
+import { UsuariolistaComponent } from './component/usuario/usuariolista/usuariolista.component';
 
 
 const routes: Routes = [ { path: '', redirectTo: '/plantilla', pathMatch: 'full' },
@@ -26,6 +27,7 @@ const routes: Routes = [ { path: '', redirectTo: '/plantilla', pathMatch: 'full'
 { path: 'dispositivo', component: PuentojuegolistaComponent},
 
 { path: 'roles', component: RollistaComponent},
+{ path: 'usuarios', component: UsuariolistaComponent},
 
 //{ path: 'dispositivo', component: },
 ];

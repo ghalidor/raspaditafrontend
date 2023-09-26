@@ -85,12 +85,12 @@ export class RollistaComponent implements OnInit,OnDestroy {
   }
 
   modalNuevo() {
-    const modalRef = this.modalService.open(RolnuevoComponent, { size: 'md' });
+    const modalRef = this.modalService.open(RolnuevoComponent, { size: 'sm' });
     modalRef.componentInstance.padre=this;
   }
 
   modalDetalle(id:number) {
-    const modalRef = this.modalService.open(RoleditarComponent, { size: 'md' });
+    const modalRef = this.modalService.open(RoleditarComponent, { size: 'sm' });
     modalRef.componentInstance.id=id;
     modalRef.componentInstance.padre=this;
   }

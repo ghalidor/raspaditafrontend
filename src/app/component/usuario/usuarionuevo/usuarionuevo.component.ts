@@ -1,15 +1,111 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, OnDestroy, ViewChild, TemplateRef, Input } from '@angular/core';
+import { NgxSpinnerService } from "ngx-spinner";
+import { ToastrService } from 'ngx-toastr';
+import { Subject } from 'rxjs';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { rol, rolNuevo } from 'src/app/module/rol';
+import { RolService } from 'src/app/service/rol/rol.service';
+import { local } from 'src/app/module/local';
+import { LocalService } from 'src/app/service/local/local.service';
+import { usuarioNuevo } from 'src/app/module/usuario';
+import { UsuarioService } from 'src/app/service/usuario/usuario.service';
 @Component({
   selector: 'app-usuarionuevo',
   templateUrl: './usuarionuevo.component.html',
   styleUrls: ['./usuarionuevo.component.css']
 })
 export class UsuarionuevoComponent implements OnInit {
-
-  constructor() { }
+  listarol: rol[];
+  listalocal: local[];
+  usuario=new usuarioNuevo();
+  @Input() padre;
+  onCreateForm = this.formBuilder.group({
+    'local_id': ['', Validators.compose([
+      Validators.required
+    ]),],
+    'rol_id': ['', Validators.compose([
+      Validators.required
+    ]),],
+    'nombre': ['', Validators.compose([
+      Validators.required
+    ]),],
+    'password': ['', Validators.compose([
+      Validators.required
+    ]),],
+  });
+  constructor(
+    private spinnerService: NgxSpinnerService,
+    public activeModal: NgbActiveModal,
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService,
+    private localService:LocalService,
+    private rolService:RolService,
+    private usuarioService:UsuarioService) { }
 
   ngOnInit(): void {
+    this.listalocal=[];
+    this.listarol=[];
+    this.ListaRol();
+    this.ListaLocal();
+  }
+
+  ListaRol() {
+
+    this.rolService.GetRoles().subscribe({
+      next: response => {
+        this.listarol = response.data;
+      },
+      complete: () => {
+        this.spinnerService.hide();
+      },
+      error: (error) => {
+        this.spinnerService.hide();
+      }
+    })
+  }
+
+  ListaLocal() {
+
+    this.localService.GetLocales().subscribe({
+      next: response => {
+        this.listalocal = response.data;
+      },
+      complete: () => {
+        this.spinnerService.hide();
+      },
+      error: (error) => {
+        this.spinnerService.hide();
+      }
+    })
+  }
+
+  guardar() {
+    if (this.onCreateForm.valid) {
+      this.spinnerService.show();
+      this.usuarioService.CreateUsuario(this.usuario).subscribe({
+        next: response => {
+          if (response.response) {
+            this.toastr.success(response.message);
+            this.usuario = new usuarioNuevo();
+            this.padre.ListaUsuario();
+            this.activeModal.close();
+          }
+          else {
+            this.toastr.error(response.message);
+          }
+        },
+        complete: () => {
+          this.spinnerService.hide();
+        },
+        error: (error) => {
+          this.spinnerService.hide();
+        }
+      })
+    }
+    else {
+      this.toastr.warning("Complete los campos obligatorios");
+    }
   }
 
 }
