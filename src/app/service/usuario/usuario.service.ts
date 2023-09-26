@@ -26,6 +26,11 @@ export class UsuarioService {
     return this.httpclient.get(url);
   }
 
+  GetUsuariosxCaja_id(caja_id: number): Observable<any> {
+    const url = `${this.apiUrl}Usuario/GetUsuariosxCaja_id/${caja_id}`;
+    return this.httpclient.get(url);
+  }
+
   CreateUsuario(usuario: usuarioNuevo): Observable<any> {
     const url = `${this.apiUrl}Usuario/CreateUsuario`;
     const headers = new HttpHeaders().set('content-type', 'application/json');

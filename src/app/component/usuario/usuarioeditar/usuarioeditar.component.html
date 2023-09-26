@@ -33,14 +33,17 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="row ">
+        <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="form-group ">
-                    <label>Password</label>
-                    <input type="password" [(ngModel)]="usuario.password" formControlName="password" class="form-control" placeholder="">
+                    <label>Estado</label>
+                    <ng-select class="" formControlName="estado" placeholder="Seleccione" [(ngModel)]="usuario.estado" [clearable]="true" [searchable]="false" [multiple]="false">
+                        <ng-option [value]="true">Activo</ng-option>
+                        <ng-option [value]="false">Inactivo</ng-option>
+                    </ng-select>
                 </div>
             </div>
-        </div> -->
+        </div>
     </form>
 
 </div>

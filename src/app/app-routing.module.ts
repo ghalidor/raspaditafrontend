@@ -11,6 +11,7 @@ import { TicketComponent } from './component/apertura/ticket/ticket.component';
 import { ResumendiaComponent } from './component/reporte/resumendia/resumendia.component';
 import { RollistaComponent } from './component/rol/rollista/rollista.component';
 import { UsuariolistaComponent } from './component/usuario/usuariolista/usuariolista.component';
+import { UsuariocajaComponent } from './component/usuario/usuariocaja/usuariocaja.component';
 
 
 const routes: Routes = [ { path: '', redirectTo: '/plantilla', pathMatch: 'full' },
@@ -28,6 +29,7 @@ const routes: Routes = [ { path: '', redirectTo: '/plantilla', pathMatch: 'full'
 
 { path: 'roles', component: RollistaComponent},
 { path: 'usuarios', component: UsuariolistaComponent},
+{ path: 'usuariocaja', component: UsuariocajaComponent},
 
 //{ path: 'dispositivo', component: },
 ];

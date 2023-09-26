@@ -24,7 +24,9 @@ export class usuarioNuevo {
 
 export class usuarioEditar {
     id: number;
+    usuariolocal_id:number;  
     local_id: number;
+    usuariorol_id:number;
     rol_id: number;
     nombre: string;
     estado: boolean;

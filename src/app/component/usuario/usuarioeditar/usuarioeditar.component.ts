@@ -34,7 +34,7 @@ export class UsuarioeditarComponent implements OnInit {
     'nombre': ['', Validators.compose([
       Validators.required
     ]),],
-    'password': ['', Validators.compose([
+    'estado': ['', Validators.compose([
       Validators.required
     ]),],
   });
@@ -107,7 +107,9 @@ export class UsuarioeditarComponent implements OnInit {
       this.spinnerService.show();
       this.usuarioEditar.id = this.id;
       this.usuarioEditar.nombre = this.usuario.nombre;
+      this.usuarioEditar.usuariolocal_id=this.usuario.usuariolocal_id
       this.usuarioEditar.local_id = this.usuario.local_id;
+      this.usuarioEditar.usuariorol_id=this.usuario.usuariorol_id;
       this.usuarioEditar.rol_id = this.usuario.rol_id;
       this.usuarioEditar.estado = this.usuario.estado;
       this.usuarioService.UpdateUsuario(this.usuarioEditar).subscribe({
