@@ -1,5 +1,5 @@
-
-<app-lsidebar></app-lsidebar>
+<app-lsidebar>
+</app-lsidebar>
 
 <div class="wrapper">
     <div class="content shadow-sm" style="padding-bottom: 58px;">
@@ -13,7 +13,7 @@
                             <h6 class="font-weight-light mt-1">Asignar Usuarios a caja<br><small class="text-mute">Registros de
                   Usuarios</small></h6>
                         </div>
-<!-- 
+                        <!-- 
                         <div class="col-auto align-self-center">
                             <button class="btn btn-primary btn-sm" ><i class="material-icons icon md-18"
                   style="margin-top: -4px;" >add</i> Nuevo Usuario</button>
@@ -33,7 +33,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Local</span>
                                     </div>
-                                    <ng-select (change)="ListaCaja()" [(ngModel)]="local_id" style="padding-left: 0px;padding-right: 0px;"  class="form-control form-select custom-select"  placeholder="Seleccione" [clearable]="true" [searchable]="true" [multiple]="false">
+                                    <ng-select (change)="ListaCaja()" [(ngModel)]="local_id" style="padding-left: 0px;padding-right: 0px;" class="form-control form-select custom-select" placeholder="Seleccione" [clearable]="true" [searchable]="true" [multiple]="false">
                                         <ng-option *ngFor="let e of listalocal" [value]="e.id">{{e.nombre}}</ng-option>
                                     </ng-select>
                                 </div>
@@ -45,7 +45,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Caja</span>
                                     </div>
-                                    <ng-select [(ngModel)]="caja_id" style="padding-left: 0px;padding-right: 0px;"  class="form-control form-select custom-select"  placeholder="Seleccione" [clearable]="true" [searchable]="true" [multiple]="false">
+                                    <ng-select (change)="ListaUsuarioxCaja()" [(ngModel)]="caja_id" style="padding-left: 0px;padding-right: 0px;" class="form-control form-select custom-select" placeholder="Seleccione" [clearable]="true" [searchable]="true" [multiple]="false">
                                         <ng-option *ngFor="let e of listacaja" [value]="e.id">{{e.nombre}}</ng-option>
                                     </ng-select>
                                 </div>
@@ -76,10 +76,10 @@
                                         <td class="text-nowrap text-left">{{ usuario.fecharegistro_string }}</td>
                                         <td class="text-nowrap text-left"><span class="badge badge-{{usuario.clase}}">{{ usuario.estado_string }}</span></td>
                                         <td class="text-center">
-                                            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group" (click)="agregar(usuario.id)">
-                                                <input type="checkbox" class="btn-check" id="btn{{ usuario.id }}" autocomplete="off">
+                                            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                                <input type="checkbox" (change)="agregar(usuario.id)" [checked]="usuario.check" class="btn-check" id="btn{{ usuario.id }}" autocomplete="off">
                                                 <label class="btn btn-outline-success" for="btn{{ usuario.id }}"><i class="fa fa-edit"></i></label>
-                                              </div>
+                                            </div>
                                         </td>
                                     </tr>
                                 </tbody>

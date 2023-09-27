@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, OnDestroy, TemplateRef } from '@angular/core';
+import { Component, ViewChild, OnInit, OnDestroy, TemplateRef, AfterViewInit } from '@angular/core';
 import { DataTableDirective } from 'angular-datatables';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from "ngx-spinner";
@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { UsuarionuevoComponent } from '../usuarionuevo/usuarionuevo.component';
 import { UsuarioeditarComponent } from '../usuarioeditar/usuarioeditar.component';
 import { UsuarioService } from 'src/app/service/usuario/usuario.service';
-import { usuario } from 'src/app/module/usuario';
+import { usuario, usuarioCajaNuevo } from 'src/app/module/usuario';
 import { local } from 'src/app/module/local';
 import { LocalService } from 'src/app/service/local/local.service';
 import { caja } from 'src/app/module/caja';
@@ -18,7 +18,7 @@ import { CajaService } from 'src/app/service/caja/caja.service';
   templateUrl: './usuariocaja.component.html',
   styleUrls: ['./usuariocaja.component.css']
 })
-export class UsuariocajaComponent implements OnInit {
+export class UsuariocajaComponent implements OnInit, OnDestroy, AfterViewInit {
   closeResult = '';
   @ViewChild(DataTableDirective, { static: false })
   dtElement: DataTableDirective;
@@ -27,7 +27,7 @@ export class UsuariocajaComponent implements OnInit {
   listalocal: local[];
   listacaja: caja[];
   listausuario: usuario[];
-
+usuariocaja = new usuarioCajaNuevo();
   local_id: number;
   caja_id: number;
   constructor(private modalService: NgbModal,
@@ -65,36 +65,38 @@ export class UsuariocajaComponent implements OnInit {
       }],
     };
     this.ListaLocal();
+    this.rerender();
     //this.ListaUsuario();
   }
 
+  rerender(): void {
+    if (this.dtElement != null) {
+      this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+        // Destroy the table first
+        dtInstance.destroy();
+        // Call the dtTrigger to rerender again
+        this.dtTrigger.next(0);
+      });
+    }
+  }
+
+  reDraw(): void {
+    this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+      dtInstance.clear().draw(); // Add this  line to clear all rows..
+      dtInstance.destroy();      
+      // dtTrigger la reconstruye
+      this.dtTrigger.next(0);      
+    });
+  }
+
+  ngAfterViewInit(): void {
+    this.dtTrigger.next(0);
+  }
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
   }
 
-  // ListaUsuario() {
-  //   console.log(this.dtElement)
-  //   if (this.dtElement != null) {
-  //     this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-  //       // Destroy the table first
-  //       dtInstance.destroy();
-  //       dtInstance.clear();
-  //     });
-  //   }
-  //   this.usuarioService.GetUsuarios().subscribe({
-  //     next: response => {
-  //       this.listausuario = response.data;
-  //       this.dtTrigger.next(0);
-  //     },
-  //     complete: () => {
-  //       this.spinnerService.hide();
-  //     },
-  //     error: (error) => {
-  //       this.spinnerService.hide();
-  //     }
-  //   });
-  // }
 
   ListaLocal() {
     this.localService.GetLocales().subscribe({
@@ -128,39 +130,64 @@ export class UsuariocajaComponent implements OnInit {
       })
     }
     else {
-        this.toastr.warning("Seleccione Local");
+      this.toastr.warning("Seleccione Local");
     }
   }
 
   ListaUsuarioxCaja() {
-    if (this.dtElement != null) {
-      this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-        // Destroy the table first
-        dtInstance.destroy();
-      });
-    }
-
-    console.log(this.local_id)
-    this.usuarioService.GetUsuariosxLocal_id(this.local_id).subscribe({
-      next: response => {
-        this.listausuario = response.data;
-        this.dtTrigger.next(0);
-      },
-      complete: () => {
-        this.spinnerService.hide();
-      },
-      error: (error) => {
-        this.spinnerService.hide();
+    if (this.local_id != null && this.caja_id != null) {
+      if (this.dtElement != null) {
+        this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+          // Destroy the table first
+          dtInstance.destroy();
+        });
       }
-    })
+  
+      this.usuarioService.GetUsuarioxCaja_idTodosQuery(this.local_id,this.caja_id).subscribe({
+        next: response => {
+          this.listausuario = response.data;
+          this.dtTrigger.next(0);
+        },
+        complete: () => {
+          this.spinnerService.hide();
+        },
+        error: (error) => {
+          this.spinnerService.hide();
+        }
+      })
+    }
+    else{
+      this.toastr.warning("Seleccione Local/Caja");
+    }
+    
   }
 
   agregar(usuarioId: number) {
-    if (this.local_id != null && this.caja_id==null) {
-      
+    if (this.local_id != null && this.caja_id != null) {
+      this.usuariocaja.caja_id=this.caja_id;
+      this.usuariocaja.usuario_id=usuarioId;
+      this.usuariocaja.local_id=this.local_id;
+      this.usuarioService.CreateUsuarioCaja(this.usuariocaja).subscribe({
+        next: response => {
+          if (response.response) {
+            this.toastr.success(response.message);
+          }
+          else {
+            this.toastr.error(response.message);
+          }
+        },
+        complete: () => {
+          this.spinnerService.hide();
+        },
+        error: (error) => {
+          this.spinnerService.hide();
+          this.ListaUsuarioxCaja();
+        }
+      })
     }
-    else{
-
+    else {
+      this.reDraw();
+      this.toastr.warning("Seleccione Local/Caja");
     }
   }
 }

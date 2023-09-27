@@ -12,10 +12,13 @@ import { ResumendiaComponent } from './component/reporte/resumendia/resumendia.c
 import { RollistaComponent } from './component/rol/rollista/rollista.component';
 import { UsuariolistaComponent } from './component/usuario/usuariolista/usuariolista.component';
 import { UsuariocajaComponent } from './component/usuario/usuariocaja/usuariocaja.component';
+import { LoginComponent } from './component/login/login.component';
 
 
 const routes: Routes = [ { path: '', redirectTo: '/plantilla', pathMatch: 'full' },
 { path: 'plantilla', component: PlantillaComponent},
+{ path: 'login', component: LoginComponent},
+
 { path: 'ticket', component: TicketComponent},
 { path: 'apertura', component: AperturalistaComponent},
 { path: 'cajalocal', component: CajalocalComponent},

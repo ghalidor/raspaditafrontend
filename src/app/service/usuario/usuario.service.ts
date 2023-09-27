@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { usuarioEditar, usuarioNuevo } from 'src/app/module/usuario';
+import { UsuarioLogin, usuarioCajaNuevo, usuarioEditar, usuarioNuevo } from 'src/app/module/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,12 @@ import { usuarioEditar, usuarioNuevo } from 'src/app/module/usuario';
 export class UsuarioService {
   private readonly apiUrl = environment.api_rapidita;
   constructor(public httpclient: HttpClient) { }
+
+  UsuarioLogin(usuario: UsuarioLogin): Observable<any> {
+    const url = `${this.apiUrl}Usuario/UsuarioLogin`;
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+    return this.httpclient.post<UsuarioLogin>(url, usuario, { headers });
+  }
 
   GetUsuarios(): Observable<any> {
     const url = `${this.apiUrl}Usuario/GetUsuarios`;
@@ -26,8 +32,8 @@ export class UsuarioService {
     return this.httpclient.get(url);
   }
 
-  GetUsuariosxCaja_id(caja_id: number): Observable<any> {
-    const url = `${this.apiUrl}Usuario/GetUsuariosxCaja_id/${caja_id}`;
+  GetUsuarioxCaja_idTodosQuery(local_id: number,caja_id: number): Observable<any> {
+    const url = `${this.apiUrl}Usuario/GetUsuarioxCaja_idTodosQuery/${local_id}/${caja_id}`;
     return this.httpclient.get(url);
   }
 
@@ -43,10 +49,10 @@ export class UsuarioService {
     return this.httpclient.post<usuarioEditar>(url, usuario, { headers });
   }
 
-  CreateUsuarioCaja(usuario: usuarioNuevo): Observable<any> {
+  CreateUsuarioCaja(usuario: usuarioCajaNuevo): Observable<any> {
     const url = `${this.apiUrl}Usuario/CreateUsuarioCaja`;
     const headers = new HttpHeaders().set('content-type', 'application/json');
-    return this.httpclient.post<usuarioNuevo>(url, usuario, { headers });
+    return this.httpclient.post<usuarioCajaNuevo>(url, usuario, { headers });
   }
 
   CreateUsuarioLocal(usuario: usuarioNuevo): Observable<any> {

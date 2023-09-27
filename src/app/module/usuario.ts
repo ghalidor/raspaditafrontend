@@ -13,6 +13,12 @@ export class usuario {
     estado: boolean;
     estado_string:string;
     clase:string;
+    check:boolean;
+}
+
+export class UsuarioLogin {
+    nombre: String;
+    password: String;
 }
 
 export class usuarioNuevo {
@@ -30,4 +36,11 @@ export class usuarioEditar {
     rol_id: number;
     nombre: string;
     estado: boolean;
+}
+
+
+export class usuarioCajaNuevo {
+    caja_id:number;
+    local_id: number;
+    usuario_id: number;
 }

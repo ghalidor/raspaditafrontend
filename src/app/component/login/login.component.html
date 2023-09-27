@@ -1,1 +1,130 @@
-<p>login works!</p>
+<ngx-spinner></ngx-spinner>
+<div class="wrapper">
+    <div class="content shadow-sm position-relative">
+        <header class="header">
+            <!-- Fixed navbar -->
+            <nav class="container-fluid">
+                <div class="row">
+                    <div class="col align-self-center">
+                        <a href="javascript:void(0)" class="logo text-white">
+                            <div class="logo-text">
+                                <h5 class="fs22 mb-0"><span class="text-danger">R</span>aspadita <sup class="badge badge-danger">v1</sup></h5>
+                                <p class="text-uppercase fs11">Acceso</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col text-right align-self-center">
+                        <a href="javascript:void(0)" class="btn btn-sm btn-primary text-uppercase">Seguridad</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="background">
+            <div class="bg_img">
+                <img class="img_response" src="assets/images/image1.jpg" alt="">
+            </div>
+
+            <div class="overlay_gradient"></div>
+            <div class="background_dots"></div>
+        </div>
+
+        <!-- Main container starts -->
+        <div class="container main-container" id="main-container">
+            <div class="row login-row-height">
+                <div class="col-12 col-md-6 col-lg-7 d-none d-md-flex"></div>
+                <div class="col-12 col-md-6 col-lg-5 col-xl-4  align-self-center">
+                    <div class="card border-0 shadow-lg blur">
+                        <div class="card-body py-5">
+                            <form autocomplete="off" [autocomplete]="false" [formGroup]="onLoginForm">
+                                <h5 class="font-weight-light mb-1 text-mute-high">Bienvenido,</h5>
+                                <h3 class="font-weight-normal mb-4">Porfavor Ingrese</h3>
+                                <div class="card  mb-2 overflow-hidden">
+                                    <div class="card-body p-0">
+
+                                        <label for="nombre" class="sr-only">Usuario</label>
+                                        <input type="text" #usu_nombre_input onClick="this.select();" [(ngModel)]="usuarioLogin.nombre" formControlName="nombre" class="form-control rounded-0 border-0" placeholder="Usuario" required="">
+                                        <hr class="my-0">
+                                        <label for="password" class="sr-only">Contraseña</label>
+                                        <input type="password" [(ngModel)]="usuarioLogin.password" formControlName="password" class="form-control rounded-0 border-0" placeholder="Contraseña" required="">
+
+                                    </div>
+                                </div>
+                                <!-- <div class="my-3 row">
+
+                                    <div class="col-12 col-md py-1 text-left text-md-right">
+                                        <a href="javascript:void(0)" class="template-primary">Olvidó su Contraseña?</a>
+                                    </div>
+                                </div> -->
+                                <div class="mb-4">
+                                    <button (click)="Login()" [disabled]="!onLoginForm.valid" class=" btn btn-primary btn-block">Ingresar
+                    <i class="material-icons md-18">arrow_forward</i></button>
+                                </div>
+                                <!-- <div class="">
+                                    <p class="text-mute">
+                                        No tienes una cuenta?<br> Por favor <a href="javascript:void(0)" class="text-template-primary-light">Registrate</a> Aqui.
+                                    </p>
+                                </div> -->
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main container ends -->
+    </div>
+    <footer class="footer" style="margin-top: -58px;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md text-center text-md-left align-self-center">
+                    <p>Todos los derechos reservados
+                        <a href="javascript:void(0)"></a>
+                    </p>
+                </div>
+                <div class="col-12 col-md-auto text-center text-md-right">
+                    <ul class="nav justify-content-center justify-md-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="javascript:void(0)">Terminos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0)">Contactanos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<!-- <ng-template class="" #modalRecuperar let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Recuperar Contraseña</h4>
+        <button type="button" class="close btn-sm" aria-label="Close" (click)="modal.dismiss('Cross click')"><i
+      class="material-icons icon md-18">close</i></button>
+    </div>
+    <div class="modal-body">
+        <form autocomplete="off" [autocomplete]="false" [formGroup]="onCreateFormR">
+            <div class="row ">
+                <div class="alert alert-warning">Se necesita que vuelva a comprobar su contraseña o escribir una nueva</div>
+                <div class="col-lg-12 col-md-12">
+                    <div class="form-group ">
+                        <label>Contraseña</label>
+                        <input type="password" [(ngModel)]="usu_passwordr" formControlName="usu_passwordr" class="form-control rounded-0 border-0" placeholder="Contraseña" required="">
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                    <div class="form-group ">
+                        <label>Vuelva a escribir Contraseña</label>
+                        <input type="password" [(ngModel)]="usu_passwordrr" formControlName="usu_passwordrr" class="form-control rounded-0 border-0" placeholder="Contraseña" required="">
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="recuperar()">Guardar</button>
+    </div>
+
+</ng-template> -->
