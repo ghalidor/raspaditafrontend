@@ -44,3 +44,15 @@ export class usuarioCajaNuevo {
     local_id: number;
     usuario_id: number;
 }
+
+export class usuarioCajaRespuesta{
+    nombre:string;
+    id: number;
+    caja_id: number;
+    caja_nombre: string;
+    local_id: number;
+    local_nombre: string;
+    token: string;
+    response: number;
+    message: string;
+}

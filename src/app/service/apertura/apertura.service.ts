@@ -28,4 +28,10 @@ export class AperturaService {
     return this.httpclient.post<aperturaCerrar>(url,apertura, { headers });
   }
 
+  AnularApertura(apertura: aperturaCerrar): Observable<any> {
+    const url = `${this.apiUrl}Apertura/AnularApertura`;
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+    return this.httpclient.post<aperturaCerrar>(url,apertura, { headers });
+  }
+
 }

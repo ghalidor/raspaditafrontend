@@ -8,6 +8,7 @@ import { caja } from 'src/app/module/caja';
 import { CajaService } from 'src/app/service/caja/caja.service';
 import { AperturaService } from 'src/app/service/apertura/apertura.service';
 import { apertura, aperturaNuevo, aperturaCerrar } from 'src/app/module/apertura';
+import { usuarioCajaNuevo, usuarioCajaRespuesta } from 'src/app/module/usuario';
 
 @Component({
   selector: 'app-aperturalista',
@@ -24,6 +25,7 @@ export class AperturalistaComponent implements OnInit, OnDestroy {
   aperturaNuevo = new aperturaNuevo();
   aperturaCerrar = new aperturaCerrar();
   id: number;
+  usuario =new usuarioCajaRespuesta();
   @ViewChild('modalApertura') public templateModalapertura: TemplateRef<any>;
   constructor(private modalService: NgbModal,
     private spinnerService: NgxSpinnerService,
@@ -94,8 +96,8 @@ export class AperturalistaComponent implements OnInit, OnDestroy {
       });
     }
 
-    //var fechaini = moment(this.fechaini, "DD-MM-YYYY").format("YYYY-MM-DD");
-    this.aperturaService.GetAperturaxLocal_idxCaja_id(1, 1).subscribe({
+    this.usuario= JSON.parse(localStorage.getItem('usuario'));
+    this.aperturaService.GetAperturaxLocal_idxCaja_id(this.usuario.local_id, this.usuario.caja_id).subscribe({
       next: response => {
 
         this.listaapertura = response.data;
@@ -113,8 +115,9 @@ export class AperturalistaComponent implements OnInit, OnDestroy {
   aperturar() {
     this.spinnerService.show();
     //var fechaini = moment(this.fechaini, "DD-MM-YYYY").format("YYYY-MM-DD");
-    this.aperturaNuevo.caja_id = 1;
-    this.aperturaNuevo.local_id = 1;
+    this.usuario= JSON.parse(localStorage.getItem('usuario'));
+    this.aperturaNuevo.caja_id = this.usuario.caja_id;
+    this.aperturaNuevo.local_id = this.usuario.local_id;
     this.aperturaService.CreateApertura(this.aperturaNuevo).subscribe({
       next: response => {
         if (response.response) {
@@ -142,10 +145,37 @@ export class AperturalistaComponent implements OnInit, OnDestroy {
 
   cerrar() {
     this.spinnerService.show();
+    this.usuario= JSON.parse(localStorage.getItem('usuario'));
     this.aperturaCerrar.id = this.id;
-    this.aperturaCerrar.caja_id = 1;
-    this.aperturaCerrar.local_id = 1;
+    this.aperturaCerrar.caja_id =this.usuario.caja_id;
+    this.aperturaCerrar.local_id = this.usuario.local_id;
     this.aperturaService.CloseApertura(this.aperturaCerrar).subscribe({
+      next: response => {
+        if (response.response) {
+          this.toastr.success(response.message);
+          this.ListaAperturas();
+          this.modalService.dismissAll();
+        }
+        else {
+          this.toastr.error(response.message);
+        }
+      },
+      complete: () => {
+        this.spinnerService.hide();
+      },
+      error: (error) => {
+        this.spinnerService.hide();
+      }
+    })
+  }
+
+  anular() {
+    this.spinnerService.show();
+    this.usuario= JSON.parse(localStorage.getItem('usuario'));
+    this.aperturaCerrar.id = this.id;
+    this.aperturaCerrar.caja_id =this.usuario.caja_id;
+    this.aperturaCerrar.local_id = this.usuario.local_id;
+    this.aperturaService.AnularApertura(this.aperturaCerrar).subscribe({
       next: response => {
         if (response.response) {
           this.toastr.success(response.message);

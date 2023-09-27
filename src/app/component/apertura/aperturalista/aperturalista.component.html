@@ -13,12 +13,13 @@
 
                         <div class="col">
                             <h6 class="font-weight-light mt-1">Lista Aperturas<br><small class="text-mute">Registros de
-                  Aperturas de Cajas</small></h6>
+                                    Aperturas de Cajas</small></h6>
                         </div>
 
                         <div class="col-auto align-self-center">
-                            <button class="btn btn-primary btn-sm" (click)="open(modalApertura,'sm')"><i class="material-icons icon md-18"
-                  style="margin-top: -4px;" >add</i> Aperturar Caja</button>
+                            <button class="btn btn-primary btn-sm" (click)="open(modalApertura,'sm')"><i
+                                    class="material-icons icon md-18" style="margin-top: -4px;">add</i> Aperturar
+                                Caja</button>
                         </div>
                     </div>
                 </div>
@@ -31,7 +32,8 @@
                 <div class="card-body ">
                     <div class="view">
                         <div class="wrapper_">
-                            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-sm table-bordered table-striped table-hover display " width="100%">
+                            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                                class="table table-sm table-bordered table-striped table-hover display " width="100%">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -52,9 +54,15 @@
                                         <td class="text-nowrap text-left">{{ apertura.fechacierre_string }}</td>
                                         <td class="text-nowrap text-left">{{ apertura.nro_apertura }}</td>
                                         <td class="text-nowrap text-left">{{ apertura.usuario_nombre }}</td>
-                                        <td class="text-nowrap text-left"><span class="badge badge-{{apertura.clase}}">{{ apertura.estado_string }}</span></td>
+                                        <td class="text-nowrap text-left"><span
+                                                class="badge badge-{{apertura.clase}}">{{ apertura.estado_string
+                                                }}</span></td>
                                         <td class="text-center">
-                                            <button type="button" class="btn btn-outline-danger btn-sm" (click)="open(modalCerrar,'sm')" (click)="openCerrar(apertura.id)"><i
+                                            <button type="button" class="btn btn-warning btn-sm" style="margin-right: 4px;"
+                                                (click)="open(modalCerrar,'sm')" (click)="openCerrar(apertura.id)"><i
+                                                    class="fa fa-edit"></i> Cerrar</button> 
+                                            <button type="button" class="btn btn-danger btn-sm"
+                                                (click)="open(modalAnular,'sm')" (click)="openCerrar(apertura.id)"><i
                                                     class="fa fa-edit"></i> Anular</button>
                                         </td>
                                     </tr>
@@ -77,7 +85,7 @@
         <div class="modal-header">
             <h4 class="modal-title" id="modal-basic-title">Aperturar Caja</h4>
             <button type="button" class="close btn-sm" aria-label="Close" (click)="modal.dismiss('Cross click')"><i
-          class="material-icons icon md-18">close</i></button>
+                    class="material-icons icon md-18">close</i></button>
         </div>
         <div class="modal-body">
             <div class="row">
@@ -89,8 +97,10 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-warning" (click)="modal.close()"><i class="fa fa-close"></i> Cerrar</button>
-            <button type="button" class="btn btn-danger" (click)="aperturar()"><i class="fa fa-edit"></i> Aperturar</button>
+            <button type="button" class="btn btn-warning" (click)="modal.close()"><i class="fa fa-close"></i>
+                Cerrar</button>
+            <button type="button" class="btn btn-danger" (click)="aperturar()"><i class="fa fa-edit"></i>
+                Aperturar</button>
         </div>
     </ng-template>
 
@@ -98,7 +108,7 @@
         <div class="modal-header">
             <h4 class="modal-title" id="modal-basic-title">Cerrar Apertura</h4>
             <button type="button" class="close btn-sm" aria-label="Close" (click)="modal.dismiss('Cross click')"><i
-          class="material-icons icon md-18">close</i></button>
+                    class="material-icons icon md-18">close</i></button>
         </div>
         <div class="modal-body">
             <div class="row">
@@ -110,8 +120,33 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-warning" (click)="modal.close()"><i class="fa fa-close"></i> Cerrar</button>
-            <button type="button" class="btn btn-danger" (click)="cerrar()"><i class="fa fa-edit"></i> Cerrar Apertura</button>
+            <button type="button" class="btn btn-warning" (click)="modal.close()"><i class="fa fa-close"></i>
+                Cerrar</button>
+            <button type="button" class="btn btn-danger" (click)="cerrar()"><i class="fa fa-edit"></i> Cerrar
+                Apertura</button>
+        </div>
+    </ng-template>
+
+    <ng-template class="" #modalAnular let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Anular Apertura</h4>
+            <button type="button" class="close btn-sm" aria-label="Close" (click)="modal.dismiss('Cross click')"><i
+                    class="material-icons icon md-18">close</i></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="form-group text-warning">
+                        ¿Está seguro de <b>Anular</b> apertura?
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-warning" (click)="modal.close()"><i class="fa fa-close"></i>
+                Cerrar</button>
+            <button type="button" class="btn btn-danger" (click)="anular()"><i class="fa fa-edit"></i> Anular
+                Apertura</button>
         </div>
     </ng-template>
     <app-lfooter class=""></app-lfooter>

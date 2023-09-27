@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">GENERAR TICKET</h4>
+    <button type="button" class="close btn-sm" aria-label="Close" (click)="activeModal.dismiss('Cross click')"><i
+  class="material-icons icon md-18">close</i></button>
+</div>
+<div class="modal-body">
+    <form autocomplete="off" [autocomplete]="false" [formGroup]="onCreateForm">
+        
+        <div class="row ">
+            <div class="col-lg-12 col-md-12">
+                <div class="form-group ">
+                    <label>Ticket</label>
+                    <input type="text" [(ngModel)]="ticket.nroticket" formControlName="nroticket"  #credito class="form-control text-right tamanio" placeholder="">
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-lg-12 col-md-12">
+                <div class="form-group ">
+                    <label>Saldo</label>
+                    <input type="text" [(ngModel)]="ticket.monto" formControlName="monto" readonly class="form-control text-right tamanio" placeholder="">
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="activeModal.dismiss()">Cerrar</button>
+    <button type="button" class="btn btn-danger" #btngenerar (click)="generar()">GENERAR</button>
+</div>

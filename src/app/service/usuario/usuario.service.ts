@@ -12,7 +12,7 @@ export class UsuarioService {
   constructor(public httpclient: HttpClient) { }
 
   UsuarioLogin(usuario: UsuarioLogin): Observable<any> {
-    const url = `${this.apiUrl}Usuario/UsuarioLogin`;
+    const url = `${this.apiUrl}Usuario/LoginUsuario`;
     const headers = new HttpHeaders().set('content-type', 'application/json');
     return this.httpclient.post<UsuarioLogin>(url, usuario, { headers });
   }

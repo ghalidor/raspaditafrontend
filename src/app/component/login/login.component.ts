@@ -17,12 +17,6 @@ import { UsuarioLogin, usuario, usuarioCajaNuevo } from 'src/app/module/usuario'
 export class LoginComponent implements OnInit {
   usuarioLogin = new UsuarioLogin();
   onLoginForm = this.formBuilder.group({
-    'local_id': ['', Validators.compose([
-      Validators.required
-    ]),],
-    'rol_id': ['', Validators.compose([
-      Validators.required
-    ]),],
     'nombre': ['', Validators.compose([
       Validators.required
     ]),],
@@ -30,6 +24,8 @@ export class LoginComponent implements OnInit {
       Validators.required
     ]),],
   });
+
+  images ='assets/images/fondo2.jpeg'
   constructor(private spinnerService: NgxSpinnerService,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
@@ -46,10 +42,9 @@ export class LoginComponent implements OnInit {
         if (response.response) {
           this.toastr.success(response.message);
           this.usuarioLogin = new UsuarioLogin();
-          localStorage.setItem('usuario', JSON.stringify(response.data));
-          localStorage.setItem('token', response.token);
+          localStorage.setItem('usuario', JSON.stringify(response));
           localStorage.setItem('isLoggedIn', 'true');
-          this.router.navigate(['layout']);
+          this.router.navigate(['plantilla']);
         }
         else {
           this.toastr.error(response.message);

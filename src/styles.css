@@ -7421,7 +7421,7 @@ button.bg-dark:focus {
 }
 
 .shadow-lg {
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.17) !important;
+    box-shadow: 0 0rem 0.5rem rgb(221 216 216 / 48%) !important;
 }
 
 .shadow-none {
@@ -9633,7 +9633,7 @@ a.text-dark:focus {
 
 .template-bg,
 .progress {
-    background-color: rgba(22, 30, 67, 1);
+    background-color: rgb(33 1 59);
 }
 
 .bg-light-warning {

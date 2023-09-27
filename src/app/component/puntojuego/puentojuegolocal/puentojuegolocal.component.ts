@@ -8,6 +8,7 @@ import { puntojuego, puntojuegoNuevo } from 'src/app/module/puntojuego';
 import { PuentojuegonuevoComponent } from '../puentojuegonuevo/puentojuegonuevo.component';
 import { PuntojuegoService } from './../../../service/puntojuego/puntojuego.service';
 import { PuentojuegoeditarComponent } from '../puentojuegoeditar/puentojuegoeditar.component';
+import { usuarioCajaNuevo, usuarioCajaRespuesta } from 'src/app/module/usuario';
 
 @Component({
   selector: 'app-puentojuegolocal',
@@ -21,7 +22,7 @@ export class PuentojuegolocalComponent implements OnInit,OnDestroy {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
   listadispositivo: puntojuego[];
-
+  usuario =new usuarioCajaRespuesta();
   constructor(
     private modalService: NgbModal,
     private spinnerService: NgxSpinnerService,
@@ -71,7 +72,8 @@ export class PuentojuegolocalComponent implements OnInit,OnDestroy {
         dtInstance.destroy();
       });
     }
-    this.puntojuegoService.GetPuntoJuegoxLocal_id(1).subscribe({
+    this.usuario= JSON.parse(localStorage.getItem('usuario'));
+    this.puntojuegoService.GetPuntoJuegoxLocal_id(this.usuario.local_id).subscribe({
       next: response => {
         this.listadispositivo = response.data;
         this.dtTrigger.next(0);

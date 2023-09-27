@@ -8,9 +8,12 @@
                       <i class="material-icons">menu</i>
                   </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                        Raspadita v1<br>Local: 1 Caja : 1
-
+                        <div style="display: block;">
+                            <div>Raspadita v1</div>
+                            <div>
+                                Local : <span style="color:#fff;font-size: 12px;margin-right: 13px;">{{local}}</span>   Caja : <span style="color:#fff;font-size: 12px;">{{caja}}</span>
+                            </div>
+                        </div>
 
                         <!-- icons dropwdowns starts -->
                         <ul class="navbar-nav ml-auto">
@@ -451,7 +454,7 @@
                                 <a class="nav-link dropdown-toggle profile-link" href="#" id="navbarDropdown6" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                                     <div class="username-text ml-2 mr-2  d-lg-inline-block" style="line-height: 1;">
-                                        <h6 class="username"><span>Bienvenido,</span>{{usu_nombre}}</h6>
+                                        <h6 class="username"><span>Bienvenido,<b style="color:#fff;font-size: 12px;">{{usu_nombre}}</b></span></h6>
                                         <span style="font-size: 10px;">Fecha : 10-10-2023 12:23:22 PM</span>
                                     </div>
                                     <figure class="rounded avatar avatar-30  d-md-inline-block">

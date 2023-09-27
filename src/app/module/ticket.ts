@@ -25,5 +25,6 @@ export class ticketNuevo {
 }
 
 export class ticketCobrar {
-    id: number;
+    nroticket: number;
+    caja_id: number;
 }

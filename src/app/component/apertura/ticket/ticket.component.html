@@ -32,7 +32,7 @@
                                 <button class="btn btn-danger col-12 btn-block pt-3 pb-3 mb-1" (click)="acreditar()"><i class="fa fa-address-book"></i> GENERAR</button>
                             </div>
                             <div class="col-md-6 col-sm-6 col-6">
-                                <button class="btn btn-primary col-12 btn-block pt-3 pb-3 mb-1" (click)="open(modalSaldo,'sm')"><i class="fa fa-outdent"></i> PAGAR</button>
+                                <button class="btn btn-primary col-12 btn-block pt-3 pb-3 mb-1" (click)="pagar()"><i class="fa fa-outdent"></i> PAGAR</button>
                             </div>
                         </div>
                         <hr style="border-bottom: 1px solid #fff;">
@@ -60,7 +60,7 @@
                                         <td class="text-nowrap text-left">{{ ticket.fecharegistro_string }}</td>
                                         <td class="text-nowrap text-left"><span class="badge badge-{{ticket.clase}}">{{ ticket.estado_string }}</span></td>
                                         <td class="text-center">
-                                            <button type="button" class="btn btn-outline-danger btn-sm" (click)="open(modalSaldo,'sm')" (click)="opensaldo(ticket.id)"><i
+                                            <button type="button" class="btn btn-danger btn-sm" (click)="open(modalSaldo,'sm')" (click)="opensaldo(ticket.id)"><i
                                                     class="fa fa-edit"></i> Saldo</button>
                                         </td>
                                     </tr>
@@ -81,7 +81,7 @@
     <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
     <ng-template class="" #modalSaldo let-modal>
         <div class="modal-header">
-            <h4 class="modal-title" id="modal-basic-title">Aperturar Caja</h4>
+            <h4 class="modal-title" id="modal-basic-title">Saldo Ticket</h4>
             <button type="button" class="close btn-sm" aria-label="Close" (click)="modal.dismiss('Cross click')"><i
           class="material-icons icon md-18">close</i></button>
         </div>
@@ -89,14 +89,14 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="form-group text-warning">
-                        ¿Está seguro de aperturar Caja?
+                       
                     </div>
                 </div>
             </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-warning" (click)="modal.close()"><i class="fa fa-close"></i> Cerrar</button>
-            <button type="button" class="btn btn-danger" (click)="imprimirPago()"><i class="fa fa-edit"></i> PAGO</button>
+            <button type="button" class="btn btn-danger" (click)="imprimirPago()"><i class="fa fa-edit"></i> PAGAR</button>
         </div>
     </ng-template>
 

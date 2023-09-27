@@ -21,4 +21,10 @@ export class TicketService {
     return this.httpclient.post<ticketNuevo>(url, ticket, { headers });
   }
 
+  GetSaldoTicket(ticket: ticketNuevo): Observable<any> {
+    const url = `${this.apiUrl}Ticket/GenerarTicket`;
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+    return this.httpclient.post<ticketNuevo>(url, ticket, { headers });
+  }
+
 }

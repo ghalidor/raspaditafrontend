@@ -7,6 +7,8 @@ import { ToastrService } from 'ngx-toastr';
 import { ticket } from 'src/app/module/ticket';
 import { TicketService } from 'src/app/service/ticket/ticket.service';
 import { GenerarticketComponent } from '../generarticket/generarticket.component';
+import { usuarioCajaNuevo, usuarioCajaRespuesta } from 'src/app/module/usuario';
+import { PagarticketComponent } from '../pagarticket/pagarticket.component';
 @Component({
   selector: 'app-ticket',
   templateUrl: './ticket.component.html',
@@ -21,6 +23,7 @@ export class TicketComponent implements OnInit,OnDestroy {
   id: number;
   listaticket: ticket[];
   monto:number;
+  usuario =new usuarioCajaRespuesta();
   constructor(private modalService: NgbModal,
     private spinnerService: NgxSpinnerService,
     private toastr: ToastrService,
@@ -93,7 +96,8 @@ export class TicketComponent implements OnInit,OnDestroy {
     }
     this.spinnerService.show();
     //var fechaini = moment(this.fechaini, "DD-MM-YYYY").format("YYYY-MM-DD");
-    this.ticketService.GetTicketxCaja_id(1).subscribe({
+    this.usuario= JSON.parse(localStorage.getItem('usuario'));
+    this.ticketService.GetTicketxCaja_id(this.usuario.caja_id).subscribe({
       next: response => {
         this.listaticket = response.data;
         this.dtTrigger.next(0);
@@ -119,9 +123,12 @@ export class TicketComponent implements OnInit,OnDestroy {
     modalRef.componentInstance.padre=this;
   }
 
-  imprimirPago(){
-
-
+  pagar(){
+    const modalRef = this.modalService.open(PagarticketComponent, { size: 'sm' });
+    modalRef.componentInstance.padre=this;
   }
 
+  imprimirPago(){
+    
+  }
 }

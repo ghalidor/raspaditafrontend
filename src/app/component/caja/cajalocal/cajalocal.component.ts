@@ -10,6 +10,7 @@ import { local } from 'src/app/module/local';
 import { LocalService } from 'src/app/service/local/local.service';
 import { CajanuevoComponent } from '../cajanuevo/cajanuevo.component';
 import { CajaeditarComponent } from '../cajaeditar/cajaeditar.component';
+import { usuarioCajaNuevo, usuarioCajaRespuesta } from 'src/app/module/usuario';
 
 @Component({
   selector: 'app-cajalocal',
@@ -24,6 +25,7 @@ export class CajalocalComponent implements OnInit,OnDestroy {
   dtTrigger: Subject<any> = new Subject<any>();
   listacaja: caja[];
   listalocal: local[];
+  usuario =new usuarioCajaRespuesta();
   constructor(private modalService: NgbModal,
     private spinnerService: NgxSpinnerService,
     private toastr: ToastrService,
@@ -73,8 +75,8 @@ export class CajalocalComponent implements OnInit,OnDestroy {
       });
     }
   
-    //var fechaini = moment(this.fechaini, "DD-MM-YYYY").format("YYYY-MM-DD");
-    this.cajaService.GetCajasxLocal_id(1).subscribe({
+    this.usuario= JSON.parse(localStorage.getItem('usuario'));
+    this.cajaService.GetCajasxLocal_id(this.usuario.local_id).subscribe({
       next: response => {
         this.listacaja = response.data;
         this.dtTrigger.next(0);

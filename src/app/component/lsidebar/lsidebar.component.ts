@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lsidebar',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LsidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     var self= this;
@@ -169,10 +170,16 @@ export class LsidebarComponent implements OnInit {
 }
 
 cerrarSesion(){
-  // this.auth.logout();
+  localStorage.removeItem('token');
+  localStorage.removeItem('usuario');
+  //localStorage.clear();
+  localStorage.setItem('isLoggedIn', 'false');
+  this.router.navigate(['login']);
  }
 
  recargar(){
    window.location.reload();
  }
+
+
 }

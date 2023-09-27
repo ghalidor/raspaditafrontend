@@ -1,4 +1,4 @@
-<ngx-spinner></ngx-spinner>
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
 <div class="wrapper">
     <div class="content shadow-sm position-relative">
         <header class="header">
@@ -21,7 +21,7 @@
         </header>
         <div class="background">
             <div class="bg_img">
-                <img class="img_response" src="assets/images/image1.jpg" alt="">
+                <img class="img_response" src="{{images}}" alt="">
             </div>
 
             <div class="overlay_gradient"></div>
@@ -34,7 +34,7 @@
                 <div class="col-12 col-md-6 col-lg-7 d-none d-md-flex"></div>
                 <div class="col-12 col-md-6 col-lg-5 col-xl-4  align-self-center">
                     <div class="card border-0 shadow-lg blur">
-                        <div class="card-body py-5">
+                        <div class="card-body py-5" style="color: #fff;">
                             <form autocomplete="off" [autocomplete]="false" [formGroup]="onLoginForm">
                                 <h5 class="font-weight-light mb-1 text-mute-high">Bienvenido,</h5>
                                 <h3 class="font-weight-normal mb-4">Porfavor Ingrese</h3>
@@ -42,7 +42,7 @@
                                     <div class="card-body p-0">
 
                                         <label for="nombre" class="sr-only">Usuario</label>
-                                        <input type="text" #usu_nombre_input onClick="this.select();" [(ngModel)]="usuarioLogin.nombre" formControlName="nombre" class="form-control rounded-0 border-0" placeholder="Usuario" required="">
+                                        <input type="text" #usu_nombre_input onClick="this.select();" [(ngModel)]="usuarioLogin.nombre" formControlName="nombre" class="form-control rounded-0 border-0 mb-1" placeholder="Usuario" required="">
                                         <hr class="my-0">
                                         <label for="password" class="sr-only">Contraseña</label>
                                         <input type="password" [(ngModel)]="usuarioLogin.password" formControlName="password" class="form-control rounded-0 border-0" placeholder="Contraseña" required="">
