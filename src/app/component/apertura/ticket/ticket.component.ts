@@ -4,7 +4,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from "ngx-spinner";
 import { Subject } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
-import { ticket } from 'src/app/module/ticket';
+import { ticket,ticketSaldo } from 'src/app/module/ticket';
 import { TicketService } from 'src/app/service/ticket/ticket.service';
 import { GenerarticketComponent } from '../generarticket/generarticket.component';
 import { usuarioCajaNuevo, usuarioCajaRespuesta } from 'src/app/module/usuario';
@@ -24,6 +24,7 @@ export class TicketComponent implements OnInit,OnDestroy {
   listaticket: ticket[];
   monto:number;
   usuario =new usuarioCajaRespuesta();
+  ticketSaldo=new ticketSaldo();
   constructor(private modalService: NgbModal,
     private spinnerService: NgxSpinnerService,
     private toastr: ToastrService,
@@ -84,18 +85,34 @@ export class TicketComponent implements OnInit,OnDestroy {
 
   opensaldo(id: number) {
     this.id = id;
-
+    this.ticketService.GetSaldoTicket(this.id).subscribe({
+      next: response => {
+        
+        if (response.response) {
+          this.toastr.success(response.message);
+          this.ticketSaldo = response;
+          console.log(this.ticketSaldo);
+        }
+        else {
+          this.toastr.error(response.message);
+        }
+      },
+      complete: () => {
+        this.spinnerService.hide();
+      },
+      error: (error) => {
+        this.spinnerService.hide();
+      }
+    })
   }
 
   ListaTicket() {
     if (this.dtElement != null) {
       this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-        // Destroy the table first
         dtInstance.destroy();
       });
     }
     this.spinnerService.show();
-    //var fechaini = moment(this.fechaini, "DD-MM-YYYY").format("YYYY-MM-DD");
     this.usuario= JSON.parse(localStorage.getItem('usuario'));
     this.ticketService.GetTicketxCaja_id(this.usuario.caja_id).subscribe({
       next: response => {
@@ -131,4 +148,6 @@ export class TicketComponent implements OnInit,OnDestroy {
   imprimirPago(){
     
   }
+
+ 
 }
