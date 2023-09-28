@@ -8,6 +8,8 @@ import { puntojuego, puntojuegoNuevo } from 'src/app/module/puntojuego';
 import { PuntojuegoService } from './../../../service/puntojuego/puntojuego.service';
 import { ticket, ticketNuevo } from 'src/app/module/ticket';
 import { TicketService } from 'src/app/service/ticket/ticket.service';
+import { usuarioCajaNuevo, usuarioCajaRespuesta } from 'src/app/module/usuario';
+
 @Component({
   selector: 'app-generarticket',
   templateUrl: './generarticket.component.html',
@@ -17,7 +19,7 @@ export class GenerarticketComponent implements OnInit, OnDestroy {
   listadispositivo: puntojuego[];
   @Input() padre;
   ticket = new ticket();
-
+  usuario =new usuarioCajaRespuesta();
   ticketnuevo = new ticketNuevo();
   onCreateForm = this.formBuilder.group({
     'puntojuego_id': ['', Validators.compose([
@@ -69,7 +71,8 @@ export class GenerarticketComponent implements OnInit, OnDestroy {
 
   generar() {
     if (this.onCreateForm.valid) {
-      this.ticketnuevo.caja_id = 1;
+      this.usuario= JSON.parse(localStorage.getItem('usuario'));
+      this.ticketnuevo.caja_id = this.usuario.caja_id;
       this.ticketnuevo.puntojuego_id = this.ticket.puntojuego_id;
       this.ticketnuevo.credito = this.ticket.credito;
       this.ticketnuevo.monto = this.ticket.monto;
