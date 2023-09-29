@@ -10,6 +10,11 @@ export class PlantillaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+
+
+
+    
   }
 
 }

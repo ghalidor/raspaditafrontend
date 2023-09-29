@@ -14,6 +14,7 @@ import { BsDatepickerModule, BsDatepickerConfig,BsLocaleService } from 'ngx-boot
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { esLocale } from 'ngx-bootstrap/locale';
 import { DataTablesModule } from "angular-datatables";
+import { BsDropdownModule} from 'ngx-bootstrap/dropdown'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -93,6 +94,7 @@ import { PagarticketComponent } from './component/apertura/pagarticket/pagartick
     FormsModule,
     CommonModule,
     NgxSpinnerModule,
+    BsDropdownModule,
     TooltipModule.forRoot(),
     ToastrModule.forRoot({ progressBar: true,progressAnimation: 'decreasing',  preventDuplicates: true,}),
     AlertModule.forRoot(),

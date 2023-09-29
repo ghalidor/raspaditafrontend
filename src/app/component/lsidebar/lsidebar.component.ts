@@ -43,6 +43,7 @@ export class LsidebarComponent implements OnInit {
     }
 
   });
+  
   $('.nav-files .dropdown-toggle').on('click', function () {
     if ($(this).closest('.dropdown').hasClass('show') === true) {
       $(this).next().slideUp().closest('.dropdown').removeClass('show');
@@ -87,20 +88,18 @@ export class LsidebarComponent implements OnInit {
     $(this).find('img').remove();
   });
 
-  $('.dropdown-toggle').on('click', function () {
-    var thisdd = $(this);
-    thisdd.removeClass('active');
-    setTimeout(function () {
-      thisdd.addClass('active');
-    }, 100);
-    $('.dropdown').on('hidden.bs.dropdown', function () {
-      var thisddopen = $(this).find('.dropdown-toggle');
-      thisddopen.removeClass('active');
-    });
-
-
-
-  });
+  // $('.dropdown-toggle').on('click', function () {
+  //   console.log("presiono")
+  //   var thisdd = $(this);
+  //   thisdd.removeClass('active');
+  //   setTimeout(function () {
+  //     thisdd.addClass('active');
+  //   }, 100);
+  //   $('.dropdown').on('hidden.bs.dropdown', function () {
+  //     var thisddopen = $(this).find('.dropdown-toggle');
+  //     thisddopen.removeClass('active');
+  //   });
+  // });
 
   /* chat btn floating script */
   $('.chat-btn ').on('click', function () {
