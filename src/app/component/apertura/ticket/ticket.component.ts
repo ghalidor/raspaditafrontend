@@ -52,6 +52,7 @@ export class TicketComponent implements OnInit,OnDestroy {
       processing: true,
       autoWidth: true,
       scrollCollapse: false,
+      scrollX: true,
       order: [],
       "columnDefs": [{
         "targets": 7,
