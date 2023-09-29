@@ -22,9 +22,9 @@ export class GenerarticketComponent implements OnInit, OnDestroy {
   usuario =new usuarioCajaRespuesta();
   ticketnuevo = new ticketNuevo();
   onCreateForm = this.formBuilder.group({
-    'puntojuego_id': ['', Validators.compose([
-      Validators.required
-    ])],
+    // 'puntojuego_id': ['', Validators.compose([
+    //   Validators.required
+    // ])],
     'credito': ['', Validators.compose([
       Validators.required
     ]),],
@@ -47,7 +47,7 @@ export class GenerarticketComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    this.ListaDispositivo();
+    //this.ListaDispositivo();
   }
 
   ngOnDestroy(): void {
