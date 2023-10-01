@@ -15,14 +15,14 @@ import { usuarioCajaNuevo, usuarioCajaRespuesta } from 'src/app/module/usuario';
   templateUrl: './puentojuegolocal.component.html',
   styleUrls: ['./puentojuegolocal.component.css']
 })
-export class PuentojuegolocalComponent implements OnInit,OnDestroy {
+export class PuentojuegolocalComponent implements OnInit, OnDestroy {
   closeResult = '';
   @ViewChild(DataTableDirective, { static: false })
   dtElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
   listadispositivo: puntojuego[];
-  usuario =new usuarioCajaRespuesta();
+  usuario = new usuarioCajaRespuesta();
   constructor(
     private modalService: NgbModal,
     private spinnerService: NgxSpinnerService,
@@ -31,15 +31,12 @@ export class PuentojuegolocalComponent implements OnInit,OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.listadispositivo=[];
+    this.listadispositivo = [];
     this.dtOptions = {
       destroy: true,
       pagingType: 'first_last_numbers',
       pageLength: 10,
       lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
-      // language: {
-      //   url: 'assets/es-mx.json'
-      // },
       language: {
         url: 'assets/es-mx.json'
       },
@@ -50,7 +47,8 @@ export class PuentojuegolocalComponent implements OnInit,OnDestroy {
       responsive: true,
       processing: true,
       autoWidth: true,
-      scrollCollapse: false,
+      //scrollCollapse: false,
+      scrollX: true,
       order: [],
       "columnDefs": [{
         "targets": 5,
@@ -72,7 +70,7 @@ export class PuentojuegolocalComponent implements OnInit,OnDestroy {
         dtInstance.destroy();
       });
     }
-    this.usuario= JSON.parse(localStorage.getItem('usuario'));
+    this.usuario = JSON.parse(localStorage.getItem('usuario'));
     this.puntojuegoService.GetPuntoJuegoxLocal_id(this.usuario.local_id).subscribe({
       next: response => {
         this.listadispositivo = response.data;

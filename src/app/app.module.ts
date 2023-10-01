@@ -49,6 +49,8 @@ import { UsuarioeditarComponent } from './component/usuario/usuarioeditar/usuari
 import { UsuariocajaComponent } from './component/usuario/usuariocaja/usuariocaja.component';
 import { UsuariolocalComponent } from './component/usuario/usuariolocal/usuariolocal.component';
 import { PagarticketComponent } from './component/apertura/pagarticket/pagarticket.component';
+
+import { tokenInterceptor } from './component/_helpers/tokenInterceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,7 +105,7 @@ import { PagarticketComponent } from './component/apertura/pagarticket/pagartick
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [AlertConfig, BsDatepickerConfig,{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [{ provide: HTTP_INTERCEPTORS , useClass: tokenInterceptor, multi: true },AlertConfig, BsDatepickerConfig,{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

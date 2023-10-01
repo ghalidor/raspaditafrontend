@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, OnDestroy, TemplateRef } from '@angular/core';
+import { Component, ViewChild, OnInit, OnDestroy, TemplateRef,ElementRef } from '@angular/core';
 import { DataTableDirective } from 'angular-datatables';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from "ngx-spinner";
@@ -25,6 +25,8 @@ export class TicketComponent implements OnInit,OnDestroy {
   monto:number;
   usuario =new usuarioCajaRespuesta();
   ticketSaldo=new ticketSaldo();
+
+
   constructor(private modalService: NgbModal,
     private spinnerService: NgxSpinnerService,
     private toastr: ToastrService,
@@ -51,7 +53,7 @@ export class TicketComponent implements OnInit,OnDestroy {
       responsive: true,
       processing: true,
       autoWidth: true,
-      scrollCollapse: false,
+      //scrollCollapse: false,
       scrollX: true,
       order: [],
       "columnDefs": [{

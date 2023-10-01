@@ -3087,7 +3087,7 @@ input[type="button"].btn-block {
     display: none;
     float: left;
     min-width: 10rem;
-    padding: 0.5rem 0;
+    padding: 0 0;
     margin: 0.125rem 0 0;
     font-size: 1rem;
     color: rgba(33, 37, 41, 1);
@@ -3260,18 +3260,19 @@ input[type="button"].btn-block {
     padding: 0.25rem 1.5rem;
     clear: both;
     font-weight: 400;
-    color: rgba(33, 37, 41, 1);
+    color: rgb(232 238 243);
     text-align: inherit;
     white-space: nowrap;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgb(101 67 155);
+    text-shadow: #19191a 1px 1px 1px;
     border: 0;
 }
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-    color: rgba(22, 24, 27, 1);
+    color: rgb(252 253 255);
     text-decoration: none;
-    background-color: rgba(248, 249, 250, 1);
+    background-color: rgb(130 120 185);
 }
 
 .dropdown-item.active,
@@ -9484,7 +9485,7 @@ a.text-warning:focus {
 }
 
 .text-danger {
-    color: rgba(248, 87, 120, 1) !important;
+    color: rgb(255 102 102) !important;
 }
 
 a.text-danger:hover,
@@ -10358,7 +10359,7 @@ body.wrapper-square.sidemenu-open .wrapper {
 
 body.sidemenu-open .wrapper {
     /* padding-left: 285px; */
-    padding-left: 14px;
+    /* padding-left: 14px; */
 }
 
 .wrap-fixed-float {
@@ -11262,6 +11263,7 @@ body.sidebar-fill .sidebar .nav .nav-item.dropdown.show>.dropdown-toggle .icon {
     border: 0;
     transition: margin 0.5s ease;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    background: #65439b;
 }
 
 .dropdown>.dropdown-toggle+.dropdown-menu .dropdown-item {
@@ -11312,7 +11314,8 @@ body.sidebar-fill .sidebar .nav .nav-item.dropdown.show>.dropdown-toggle .icon {
 }
 
 .dropdown .dropdown-menu .dropdown-item:active {
-    background-color: rgba(22, 30, 67, 1);
+    background-color: rgb(82 74 125);
+    text-shadow: none;
 }
 
 .dropdown .dropdown-menu .dropdown-item:active .text-success,
@@ -13688,7 +13691,7 @@ a.ck.ck-button.ck-on,
 .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
     color: #fff !important;
     border: 1px solid rgba(0, 0, 0, 0.3);
-    background-color: rgb(23 62 205);
+    background-color: rgb(104 33 243);
 }
 
 .dataTables_wrapper .dataTables_length,
@@ -14195,14 +14198,30 @@ div.dataTables_wrapper div.dataTables_filter input {
 }
 
 .dataTables_scrollBody::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    background: rgb(0 0 0 / 69%);
+    -webkit-border-radius: 3px;
+    border-radius: 0px;
+    background: #4a1999;
 }
 
 .dataTables_scrollBody::-webkit-scrollbar-track {
-    border-radius: 5px;
-    background: rgb(122 83 83 / 5%);
+    border-radius: 3px;
+    background: #7a5da9;
+}
+
+.dataTables_wrapper.no-footer div.dataTables_scrollBody>table {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.dataTables_scrollBody table {
+    margin-top: -12px;
+}
+
+table thead th {
+    white-space: nowrap;
+}
+
+table tbody td {
+    white-space: nowrap;
 }
 
 .navbar-nav .dropdown-menu {
@@ -14291,8 +14310,8 @@ div.dataTables_wrapper div.dataTables_filter input {
 
 .btn-primary:focus,
 .btn-primary.focus {
-    background-color: #356ad1;
-    border-color: #5b92ff;
+    background-color: rgb(124 26 201);
+    border-color: #7f59a9;
 }
 
 .back-danger .modal-footer {
@@ -14351,4 +14370,12 @@ table.dataTable thead>tr>td.sorting_desc:after {
 
 .dataTables_filter label input {
     padding-left: 20px !important;
+}
+
+.dataTable {
+    min-width: 100%;
+}
+
+.datatable-body {
+    min-width: 100%;
 }

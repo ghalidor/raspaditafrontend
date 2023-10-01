@@ -38,9 +38,6 @@ export class CajalistaComponent implements OnInit,OnDestroy {
       pagingType: 'first_last_numbers',
       pageLength: 10,
       lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
-      // language: {
-      //   url: 'assets/es-mx.json'
-      // },
       language: {
         url: 'assets/es-mx.json'
       },
@@ -48,10 +45,11 @@ export class CajalistaComponent implements OnInit,OnDestroy {
         "<'row'<'col-12' <'row'<'col-2 col-md-1'l><'col-md-11 col-10'f> >>>" +
         "<'row'<'col-12 mt-2'tr>>" +
         "<'row'<'col-5'i><'col-7'p>>",
-      responsive: true,
-      processing: true,
-      autoWidth: true,
-      scrollCollapse: false,
+        responsive: true,
+        processing: true,
+        autoWidth: true,
+        //scrollCollapse: false,
+        scrollX: true,
       order: [],
       "columnDefs": [{
         "targets": 5,

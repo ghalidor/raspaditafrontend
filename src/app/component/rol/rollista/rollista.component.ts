@@ -14,7 +14,7 @@ import { RoleditarComponent } from '../roleditar/roleditar.component';
   templateUrl: './rollista.component.html',
   styleUrls: ['./rollista.component.css']
 })
-export class RollistaComponent implements OnInit,OnDestroy {
+export class RollistaComponent implements OnInit, OnDestroy {
   closeResult = '';
   @ViewChild(DataTableDirective, { static: false })
   dtElement: DataTableDirective;
@@ -25,18 +25,15 @@ export class RollistaComponent implements OnInit,OnDestroy {
   constructor(private modalService: NgbModal,
     private spinnerService: NgxSpinnerService,
     private toastr: ToastrService,
-    private rolService:RolService) { }
+    private rolService: RolService) { }
 
   ngOnInit(): void {
-    this.listarol=[];
+    this.listarol = [];
     this.dtOptions = {
       destroy: true,
       pagingType: 'first_last_numbers',
       pageLength: 10,
       lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
-      // language: {
-      //   url: 'assets/es-mx.json'
-      // },
       language: {
         url: 'assets/es-mx.json'
       },
@@ -47,14 +44,15 @@ export class RollistaComponent implements OnInit,OnDestroy {
       responsive: true,
       processing: true,
       autoWidth: true,
-      scrollCollapse: false,
+      //scrollCollapse: false,
+      scrollX: true,
       order: [],
       "columnDefs": [{
         "targets": 4,
         "orderable": false
       }],
     };
-    this.ListaRol() ;
+    this.ListaRol();
   }
 
   ngOnDestroy(): void {
@@ -68,7 +66,7 @@ export class RollistaComponent implements OnInit,OnDestroy {
         dtInstance.destroy();
       });
     }
-  
+
     //var fechaini = moment(this.fechaini, "DD-MM-YYYY").format("YYYY-MM-DD");
     this.rolService.GetRoles().subscribe({
       next: response => {
@@ -86,13 +84,13 @@ export class RollistaComponent implements OnInit,OnDestroy {
 
   modalNuevo() {
     const modalRef = this.modalService.open(RolnuevoComponent, { size: 'sm' });
-    modalRef.componentInstance.padre=this;
+    modalRef.componentInstance.padre = this;
   }
 
-  modalDetalle(id:number) {
+  modalDetalle(id: number) {
     const modalRef = this.modalService.open(RoleditarComponent, { size: 'sm' });
-    modalRef.componentInstance.id=id;
-    modalRef.componentInstance.padre=this;
+    modalRef.componentInstance.id = id;
+    modalRef.componentInstance.padre = this;
   }
 
 }

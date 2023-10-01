@@ -14,7 +14,7 @@ import { LocaleditarComponent } from '../localeditar/localeditar.component';
   templateUrl: './locallista.component.html',
   styleUrls: ['./locallista.component.css']
 })
-export class LocallistaComponent implements OnInit,OnDestroy {
+export class LocallistaComponent implements OnInit, OnDestroy {
   closeResult = '';
   @ViewChild(DataTableDirective, { static: false })
   dtElement: DataTableDirective;
@@ -25,18 +25,15 @@ export class LocallistaComponent implements OnInit,OnDestroy {
   constructor(private modalService: NgbModal,
     private spinnerService: NgxSpinnerService,
     private toastr: ToastrService,
-    private localService:LocalService) { }
+    private localService: LocalService) { }
 
   ngOnInit(): void {
-    this.listalocal=[];
+    this.listalocal = [];
     this.dtOptions = {
       destroy: true,
       pagingType: 'first_last_numbers',
       pageLength: 10,
       lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
-      // language: {
-      //   url: 'assets/es-mx.json'
-      // },
       language: {
         url: 'assets/es-mx.json'
       },
@@ -47,7 +44,8 @@ export class LocallistaComponent implements OnInit,OnDestroy {
       responsive: true,
       processing: true,
       autoWidth: true,
-      scrollCollapse: false,
+      //scrollCollapse: false,
+      scrollX: true,
       order: [],
       "columnDefs": [{
         "targets": 5,
@@ -61,7 +59,7 @@ export class LocallistaComponent implements OnInit,OnDestroy {
     this.dtTrigger.unsubscribe();
   }
 
-  open(modal: TemplateRef<any>,tamanio:string) {
+  open(modal: TemplateRef<any>, tamanio: string) {
     this.modalService.open(modal, { ariaLabelledBy: 'modal-basic-title', size: tamanio }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -86,7 +84,7 @@ export class LocallistaComponent implements OnInit,OnDestroy {
         dtInstance.destroy();
       });
     }
-  
+
     //var fechaini = moment(this.fechaini, "DD-MM-YYYY").format("YYYY-MM-DD");
     this.localService.GetLocales().subscribe({
       next: response => {
@@ -104,12 +102,12 @@ export class LocallistaComponent implements OnInit,OnDestroy {
 
   modalNuevo() {
     const modalRef = this.modalService.open(LocalnuevoComponent, { size: 'md' });
-    modalRef.componentInstance.padre=this;
+    modalRef.componentInstance.padre = this;
   }
 
-  modalDetalle(id:number) {
+  modalDetalle(id: number) {
     const modalRef = this.modalService.open(LocaleditarComponent, { size: 'md' });
-    modalRef.componentInstance.id=id;
-    modalRef.componentInstance.padre=this;
+    modalRef.componentInstance.id = id;
+    modalRef.componentInstance.padre = this;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, TemplateRef, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild,AfterViewInit, TemplateRef, ElementRef, Input } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
@@ -15,7 +15,7 @@ import { usuarioCajaNuevo, usuarioCajaRespuesta } from 'src/app/module/usuario';
   templateUrl: './generarticket.component.html',
   styleUrls: ['./generarticket.component.css']
 })
-export class GenerarticketComponent implements OnInit, OnDestroy {
+export class GenerarticketComponent implements OnInit, OnDestroy,AfterViewInit {
   listadispositivo: puntojuego[];
   @Input() padre;
   ticket = new ticket();
@@ -52,6 +52,10 @@ export class GenerarticketComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
 
+  }
+   
+  ngAfterViewInit(): void {
+    this.focucredito();
   }
 
   ListaDispositivo() {

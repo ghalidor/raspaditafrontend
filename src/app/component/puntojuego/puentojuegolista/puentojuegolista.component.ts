@@ -14,7 +14,7 @@ import { PuentojuegoeditarComponent } from '../puentojuegoeditar/puentojuegoedit
   templateUrl: './puentojuegolista.component.html',
   styleUrls: ['./puentojuegolista.component.css']
 })
-export class PuentojuegolistaComponent implements OnInit,OnDestroy {
+export class PuentojuegolistaComponent implements OnInit, OnDestroy {
   closeResult = '';
   @ViewChild(DataTableDirective, { static: false })
   dtElement: DataTableDirective;
@@ -29,15 +29,12 @@ export class PuentojuegolistaComponent implements OnInit,OnDestroy {
     private puntojuegoService: PuntojuegoService) { }
 
   ngOnInit(): void {
-    this.listadispositivo=[];
+    this.listadispositivo = [];
     this.dtOptions = {
       destroy: true,
       pagingType: 'first_last_numbers',
       pageLength: 10,
       lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
-      // language: {
-      //   url: 'assets/es-mx.json'
-      // },
       language: {
         url: 'assets/es-mx.json'
       },
@@ -48,7 +45,8 @@ export class PuentojuegolistaComponent implements OnInit,OnDestroy {
       responsive: true,
       processing: true,
       autoWidth: true,
-      scrollCollapse: false,
+      //scrollCollapse: false,
+      scrollX: true,
       order: [],
       "columnDefs": [{
         "targets": 5,
@@ -62,7 +60,7 @@ export class PuentojuegolistaComponent implements OnInit,OnDestroy {
     this.dtTrigger.unsubscribe();
   }
 
-  open(modal: TemplateRef<any>,tamanio:string) {
+  open(modal: TemplateRef<any>, tamanio: string) {
     this.modalService.open(modal, { ariaLabelledBy: 'modal-basic-title', size: tamanio }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -104,13 +102,13 @@ export class PuentojuegolistaComponent implements OnInit,OnDestroy {
 
   modalNuevo() {
     const modalRef = this.modalService.open(PuentojuegonuevoComponent, { size: 'md' });
-    modalRef.componentInstance.padre=this;
+    modalRef.componentInstance.padre = this;
   }
 
-  modalDetalle(id:number) {
+  modalDetalle(id: number) {
     const modalRef = this.modalService.open(PuentojuegoeditarComponent, { size: 'md' });
-    modalRef.componentInstance.id=id;
-    modalRef.componentInstance.padre=this;
+    modalRef.componentInstance.id = id;
+    modalRef.componentInstance.padre = this;
   }
 
 }

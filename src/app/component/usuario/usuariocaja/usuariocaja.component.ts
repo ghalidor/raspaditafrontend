@@ -27,7 +27,7 @@ export class UsuariocajaComponent implements OnInit, OnDestroy, AfterViewInit {
   listalocal: local[];
   listacaja: caja[];
   listausuario: usuario[];
-usuariocaja = new usuarioCajaNuevo();
+  usuariocaja = new usuarioCajaNuevo();
   local_id: number;
   caja_id: number;
   constructor(private modalService: NgbModal,
@@ -44,9 +44,6 @@ usuariocaja = new usuarioCajaNuevo();
       pagingType: 'first_last_numbers',
       pageLength: 10,
       lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
-      // language: {
-      //   url: 'assets/es-mx.json'
-      // },
       language: {
         url: 'assets/es-mx.json'
       },
@@ -57,7 +54,8 @@ usuariocaja = new usuarioCajaNuevo();
       responsive: true,
       processing: true,
       autoWidth: true,
-      scrollCollapse: false,
+      //scrollCollapse: false,
+      scrollX: true,
       order: [],
       "columnDefs": [{
         "targets": 6,
@@ -83,9 +81,9 @@ usuariocaja = new usuarioCajaNuevo();
   reDraw(): void {
     this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
       dtInstance.clear().draw(); // Add this  line to clear all rows..
-      dtInstance.destroy();      
+      dtInstance.destroy();
       // dtTrigger la reconstruye
-      this.dtTrigger.next(0);      
+      this.dtTrigger.next(0);
     });
   }
 
@@ -142,8 +140,8 @@ usuariocaja = new usuarioCajaNuevo();
           dtInstance.destroy();
         });
       }
-  
-      this.usuarioService.GetUsuarioxCaja_idTodosQuery(this.local_id,this.caja_id).subscribe({
+
+      this.usuarioService.GetUsuarioxCaja_idTodosQuery(this.local_id, this.caja_id).subscribe({
         next: response => {
           this.listausuario = response.data;
           this.dtTrigger.next(0);
@@ -156,17 +154,17 @@ usuariocaja = new usuarioCajaNuevo();
         }
       })
     }
-    else{
+    else {
       this.toastr.warning("Seleccione Local/Caja");
     }
-    
+
   }
 
   agregar(usuarioId: number) {
     if (this.local_id != null && this.caja_id != null) {
-      this.usuariocaja.caja_id=this.caja_id;
-      this.usuariocaja.usuario_id=usuarioId;
-      this.usuariocaja.local_id=this.local_id;
+      this.usuariocaja.caja_id = this.caja_id;
+      this.usuariocaja.usuario_id = usuarioId;
+      this.usuariocaja.local_id = this.local_id;
       this.usuarioService.CreateUsuarioCaja(this.usuariocaja).subscribe({
         next: response => {
           if (response.response) {
