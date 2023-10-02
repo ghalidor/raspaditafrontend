@@ -2,7 +2,7 @@ import { NgModule,CUSTOM_ELEMENTS_SCHEMA,LOCALE_ID, } from '@angular/core';
 import { CommonModule,HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import {NgbModule,NgbAlertModule } from '@ng-bootstrap/ng-bootstrap'; 
+import { NgbModule,NgbAlertModule } from '@ng-bootstrap/ng-bootstrap'; 
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
